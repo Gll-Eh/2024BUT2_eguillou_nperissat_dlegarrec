@@ -6,7 +6,11 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-    res.render('index');
+    let data = {
+        prenom : "Harley",
+        nom : "Quinn"
+    }
+    res.render('index', {data});
 })
 
 app.use( function (req, res) {
