@@ -79,7 +79,6 @@ header {
     text-decoration: none;
     font-weight: bold;
     margin-top: 5px;
-    text-align: center;
 }
 
 .navbar-right a {
@@ -103,34 +102,18 @@ header {
 }
 
 .menu ul li {
-    position: relative; /* Necessary for the arrow */
-    display: inline-block;
+    display: inline;
 }
 
 .menu ul li a {
     text-decoration: none;
-    color: #40512D; /* Dark green color */
+    color: black;
     font-weight: bold;
     font-size: 16px;
-    padding-right: 20px; /* Space for the arrow */
-    padding-left: 10px;  /* Space between the edge and text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Adding the arrow after each menu item */
-.menu ul li a::after {
-    content: '\25BC'; /* Unicode for a down arrow */
-    font-size: 12px;
-    margin-left: 8px; /* Space between text and arrow */
-    color: #40512D; /* Same color as text */
-    display: inline-block;
-    transition: transform 0.2s ease;
 }
 
 
-/* Footer styling */
+
 .footer {
     background-color: rgba(0, 0, 0, 0.7);
     /* Semi-transparent background */
@@ -141,12 +124,12 @@ header {
 }
 
 .footerText {
-    color: #fff;
+ color: #fff;
 }
 
 .footerContent {
-    display: flex;
-    justify-content: space-evenly;
+display: flex;
+justify-content: space-evenly;
 }
 
 .footer-section {
