@@ -1,72 +1,56 @@
 <%-include('header'); -%>
 
-    <article id="Accueil" class="container1">
-
-        <div class="content">
-            <img src="img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />
+<article id="Accueil" class="container1">
+  <div class="content">
+    <img src="img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />
+  </div>
+</article>
+    <div class="container">
+        <div class="section-steps">
+            <div class="step">
+                <h3>1. CHOISIR MON PRODUIT</h3>
+                <p>Je choisis le matériel avec les services associés sur locfit.fr</p>
+            </div>
+            <div class="step">
+                <h3>2. SELECTIONNER L'
+                    ABONNEMENT</h3>
+                <p>Je choisis l'offre de location qui me correspond et je récupère mon matériel en magasin.</p>
+            </div>
+            <div class="step">
+                <h3>3. PRATIQUER</h3>
+                <p>J'utilise mon produit en toute liberté en bénéficiant des services associés : entretien, casse, etc.</p>
+            </div>
+            <div class="step">
+                <h3>4. RETOURNER MON PRODUIT</h3>
+                <p>Je me rends en magasin lorsque mon engagement est terminé pour retourner mon produit.</p>
+            </div>
         </div>
-
-    </article>
-
-    <article class="Explication">
-        <h2 class="SousTitre"> Experiences</h2>
-
-
-        <section class="methodologie">
-
-            <article class="cards2">
-
-                <div class="cards-title">2021-2023</div>
-                <div class="cards-title">Bénévole Banque alimentaire
-                </div>
-                <div class="cards-subtitle">Melesse (35)</div>
-                <div class="cards-txt">Sensibilisation aux conditions des personnes les plus démunies.
-                </div>
-                <div class="cards-txt">Aquis: Capacité d’écoute, analyse</div>
-
-
-            </article>
-
-
-            <article class="cards2">
-
-                <div class="cards-title">2021-2023</div>
-                <div class="cards-title">Cours d’art plastique</div>
-                <div class="cards-subtitle">Ecole Art plastique, Betton (35)</div>
-                <div class="cards-txt">Peinture
-                    <br>Dessin<br>
-                    Pastel
-                </div>
-                <div class="cards-txt">Aquis: Culture artistique</div>
-
-            </article>
-
-            <article class="cards2">
-
-                <div class="cards-title">2021</div>
-                <div class="cards-title">Stage Ecole Creative Seeds</div>
-                <div class="cards-subtitle">École animation 3D Cesson Sévigné</div>
-                <div class="cards-txt">Initation modélisation 3D</div>
-                <div class="cards-txt">Aquis: Créativité</div>
-
-            </article>
-
-            <article class="cards2">
-
-                <div class="cards-title">2020</div>
-                <div class="cards-title">Stage d’observation Loc Maria Biscuit</div>
-                <div class="cards-subtitle">Entreprise à Dinan</div>
-                <div class="cards-txt">Découverte de différents services (communication, R&D, marketing,
-                    import/export, commercial, informatique)</div>
-                <div class="cards-txt">Aquis: Capacité d’écoute, analyse</div>
-            </article>
-
-        </section>
-
-    </article>
-
-
-
-
-
-    <%- include('footer'); -%>
+        <a href="#" class="btn">En savoir plus</a>
+    </div>
+    <!-- Section Produits -->
+    <div class="product-section">
+        <h2>Vos coups de coeur du moment <span style="color: green;">&#10084;</span></h2>
+        <div class="product-list">
+            <div class="product blue">
+                <div class="price">39€ / 30 jours</div>
+                <img src="rameur1.png" alt="Rameur 1">
+                <p class="product-name">Rameur 1</p>
+            </div>
+            <div class="product">
+                <div class="price">39€ / 30 jours</div>
+                <img src="rameur1.png" alt="Rameur 1">
+                <p class="product-name">Rameur 1</p>
+            </div>
+            <div class="product">
+                <div class="price">39€ / 30 jours</div>
+                <img src="rameur1.png" alt="Rameur 1">
+                <p class="product-name">Rameur 1</p>
+            </div>
+            <div class="product">
+                <div class="price">39€ / 30 jours</div>
+                <img src="rameur1.png" alt="Rameur 1">
+                <p class="product-name">Rameur 1</p>
+            </div>
+        </div>
+    </div>
+<%- include('footer'); -%>
