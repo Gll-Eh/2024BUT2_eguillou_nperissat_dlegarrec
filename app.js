@@ -1,6 +1,6 @@
 const express= require('express');
 const app = express();
-const UserModel = require("./models/user.js");
+const userModel = require("./models/user.js");
 
 app.set('view engine', 'ejs');
 
@@ -9,10 +9,11 @@ app.use(express.static('public'));
 
 
 //EXEMPLE A UTILISER ET A MODIFIER
+//CA MARCHE POUR LUTILISATEUR 2 SOPHIE LECLERC
 
 app.get('/', async function (req, res) {
     try {
-        const user = await UserModel.getUserById(2);
+        const user = await userModel.getUserById(2);
         res.render('index', {user});
         console.log(user)
     } catch (err) {
