@@ -124,7 +124,7 @@ body {
 }
 
 .footerText {
-
+ color: #fff;
 }
 
 .footerContent {
@@ -151,11 +151,11 @@ justify-content: space-evenly;
 }
 
 .footer ul li a {
-    color: white;
     text-decoration: none;
 }
 
 .footer ul li a:hover {
+    color: black;
     text-decoration: underline;
 }
 
