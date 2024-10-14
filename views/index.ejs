@@ -1,6 +1,11 @@
 <%-include('header'); -%>
+
     <main>
-        <h1> <%- data.prenom -%></h1>
+        <h1>Bonjour</h1>
+
+        <% user.forEach(function(element){ %>
+            <%= element.login %>
+            <% }); %>
     </main>
 
 <%- include('footer');  -%>

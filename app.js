@@ -23,16 +23,6 @@ app.get('/', async function (req, res) {
 
 //FIN DE LEXEMPLE
 
-
-
-app.get('/', function(req, res) {
-    let data = {
-        prenom : "Harley",
-        nom : "Quinn"
-    }
-    res.render('index', {data});
-})
-
 app.use( function (req, res) {
     res.status(404).render("404");
 })
