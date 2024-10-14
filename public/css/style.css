@@ -193,7 +193,83 @@ header {
     text-align: center;
     color: #ccc;
 }
+.footer {
+    
+    /* Semi-transparent background */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.footerTitle {
+ color: #fff;
+}
+
+.footerText {
+display: flex;
+flex-direction: column;
+width: 1260px;
+}
+
+.footerContent {
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+height: 320px;
+background-color: white;
+}
+
+.footer-section {
+    margin: 10px;
+}
+
+.footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin: 8px 0;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+.footer p {
+    font-size: 0.9em;
+    text-align: center;
+    color: #ccc;
+}
+
+footer {
+    background-image: url("../img/Foret_Footer2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* -----------------------acceuil-----------------------*/
 
 .container1 {
