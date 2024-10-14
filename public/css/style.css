@@ -17,12 +17,13 @@ body {
 }
 
 .logo {
-    height: 40px;
+    height: 53px;
+    width: 200px;
 }
 
 .search-bar {
-    width: 400px;
-    padding: 8px;
+    width: 700px;
+    padding: 10px;
     border: 2px solid #8C9F76;
     border-radius: 4px;
 }
@@ -36,6 +37,10 @@ body {
 
 .search-btn img {
     height: 20px;
+}
+
+.icon-link {
+    width: 30px;
 }
 
 .navbar-right a {
