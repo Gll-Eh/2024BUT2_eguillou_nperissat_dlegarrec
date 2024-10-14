@@ -1,12 +1,48 @@
 <%-include('header'); -%>
 
-    <main>
+    <!-- <main>
         <h1>Bonjour</h1>
 
         <% user.forEach(function(element){ %>
             <%= element.login %>
             <% }); %>
-    </main>
+    </main> -->
+
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="logo.png" alt="Locfit Logo" class="logo"> <!-- Replace with actual image path -->
+        </div>
+
+        <div class="navbar-center">
+            <input type="text" class="search-bar" placeholder="Rechercher...">
+            <button class="search-btn">
+                <img src="search-icon.png" alt="Search" /> <!-- Replace with search icon image path -->
+            </button>
+        </div>
+
+        <div class="navbar-right">
+            <a href="#" class="icon-link">Magasins</a>
+            <a href="#" class="icon-link">Favoris</a>
+            <a href="#" class="icon-link">Panier</a>
+            <a href="#" class="icon-link">Compte</a>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Équipements</a></li>
+            <li><a href="#">Conseil</a></li>
+            <li><a href="#">Vidéos</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
+    
+
 
 <%- include('footer');  -%>
 
