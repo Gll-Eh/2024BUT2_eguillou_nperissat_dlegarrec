@@ -8,23 +8,37 @@
     <title>Locfit</title>
 </head>
 
+<body>
+
 <header class="navbar">
     <div class="navbar-left">
         <img src="img/Locfit_logo.png" alt="Locfit Logo" class="logo">
     </div>
 
     <div class="navbar-center">
-        <input type="text" class="search-bar" placeholder="Rechercher...">
-        <button class="search-btn">
-            <img src="recherche.png" alt="Search" />
-        </button>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Rechercher...">
+            <img src="img/recherche.png" alt="Search" class="search-icon" />
+        </div>
     </div>
 
     <div class="navbar-right">
-        <a href="img/magasins.ejs"><img src="img/magasins.png" class="icon-link">Magasins</a>
-        <a href="img/favoris.ejs"><img src="img/favoris.png" class="icon-link">Favoris</a>
-        <a href="img/panier.ejs"><img src="img/panier.png" class="icon-link">Panier</a>
-        <a href="img/compte.ejs"><img src="img/compte.png" class="icon-link">Compte</a>
+        <div class="icon-group">
+            <img src="img/magasins.png" class="icon-link">
+            <a href="img/magasins.ejs">Magasins</a>
+        </div>
+        <div class="icon-group">
+            <img src="img/favoris.png" class="icon-link">
+            <a href="img/favoris.ejs">Favoris</a>
+        </div>
+        <div class="icon-group">
+            <img src="img/panier.png" class="icon-link">
+            <a href="img/panier.ejs">Panier</a>
+        </div>
+        <div class="icon-group">
+            <img src="img/compte.png" class="icon-link">
+            <a href="img/compte.ejs">Compte</a>
+        </div>
     </div>
 </header>
 
