@@ -193,3 +193,19 @@ header {
     text-align: center;
     color: #ccc;
 }
+
+/* -----------------------acceuil-----------------------*/
+
+.container1 {
+    width: 100%;
+    height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .imgPres {
+  
+    width: 1000px;
+  
+  }
