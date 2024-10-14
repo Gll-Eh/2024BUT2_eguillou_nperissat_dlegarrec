@@ -9,6 +9,7 @@ app.use(express.static('public'));
 
 
 //EXEMPLE A UTILISER ET A MODIFIER
+//CA MARCHE POUR LUTILISATEUR 2 SOPHIE LECLERC
 
 app.get('/', async function (req, res) {
     try {
