@@ -22,6 +22,17 @@ app.get('/', async function (req, res) {
     }
 });
 
+app.get('/catalogue', async function (req, res) {
+    try {
+        const user = await userModel.getUserById(2);
+        res.render('catalogue', {user});
+        console.log(user)
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur');
+    }
+});
+
 //FIN DE LEXEMPLE
 
 app.use( function (req, res) {
