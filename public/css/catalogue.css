@@ -6,7 +6,7 @@
 
 
 
-.container {
+.container_catalogue {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -36,13 +36,13 @@ h1 {
     background-color: #556b2f;
 }
 
-.product-list {
+.product-list_catalogue {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.product {
+.product_catalogue {
     background-color: white;
     border: 1px solid #ddd;
     padding: 20px;
@@ -50,7 +50,7 @@ h1 {
     border-radius: 10px;
 }
 
-.product img {
+.product_catalogue img {
     width: 100%;
     max-width: 200px;
     margin-bottom: 10px;
