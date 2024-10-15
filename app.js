@@ -44,6 +44,11 @@ app.get('/catalogue', function (req, res) {
 }
 );
 
+app.get('/location', function (req, res) {
+    res.render('location');
+}
+);
+
 app.get('/connexion', function (req, res) {
     res.render('login', {error:null});
 }
