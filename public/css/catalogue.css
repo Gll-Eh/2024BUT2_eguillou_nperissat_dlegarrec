@@ -79,3 +79,21 @@ p {
 .add-to-cart:hover {
     background-color: #e07b00;
 }
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+
+.image-link {
+    height: 30px; 
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.image-link:hover {
+    opacity: 0.8;
+}
+
