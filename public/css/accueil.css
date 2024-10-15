@@ -14,73 +14,102 @@
     width: 1010px;
   
   }
-
-  /* ----------------------------------------------*/
-
-  .Explication {
-    background-color: #ffffff;
-    width: 100%;
+  .container-step {
+    height: 330px;
     display: flex;
-    flex-direction: column;
-  
-  }
-
-  /*Experience*/
-
-.methodologie {
-
-    display: flex;
-    flex-direction: row;
-    /*PEUT ETRE REGROUPER EXPERIENCE ET HARDSKILLS (MM CODE)*/
     justify-content: center;
-  
-  
-  }
+    margin-top: 20px;
+}
+.cadresection {
+    width: 1260px;
+}
 
-  .cards-title {
-    font-size: 1.3em;
-    font-weight: 500;
-    text-align: center;
-    color: var(--font-color);
-  }
-  
-  
-  
-  .cards-subtitle {
-    font-size: 1.1em;
-    font-weight: 400;
-    text-align: center;
-    color: var(--font-color-sub);
-    font-style: italic;
-    margin-bottom: 20px;
-  
-  }
-  
-  .cards-txt {
-    font-size: 1em;
-    font-weight: 400;
-    color: var(--font-color-sub);
-  
-  
-  }
+.section-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    width: 1230px;
+}
 
-  /*-Experience-*/
-
-.cards2 {
-
+.step {
+    width: 270px;
+    height: 160px;
+    background-color: #4C7B42;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    --font-color: #323232;
-    --font-color-sub: #666;
-    background-color: #FFE7E7;
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    gap: 10px;
-    margin: 35px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  
-  }
+    padding-top: 20px;
+    justify-content: space-around;
+}
+
+.step h3 {
+    font-size: 1em;
+    margin-left: 20px;
+    width: 220px;
+}
+
+.step p {
+    font-size: 0.9em;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: white;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #214014;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.product-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 22%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.price {
+    background-color: orange;
+    color: white;
+    font-size: 1.1em;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 1em;
+    margin: 0;
+}
+
+.blue .price {
+    background-color: #00AEEF;
+}
