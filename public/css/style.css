@@ -1,9 +1,16 @@
-.container {
+.container-step {
     height: 330px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
+.cadresection {
+    width: 1260px;
+}
+
 .section-steps {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 40px;
     width: 1230px;
 }
@@ -15,7 +22,8 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 20px;
+    justify-content: space-around;
 }
 
 .step h3 {
@@ -28,16 +36,16 @@
     font-size: 0.9em;
     margin-right: 20px;
     margin-left: 20px;
+    color: white;
 }
 
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #214014;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
     margin-bottom: 40px;
 }
