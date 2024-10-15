@@ -44,10 +44,24 @@ app.get('/catalogue', function (req, res) {
 }
 );
 
+app.get('/location', function (req, res) {
+    res.render('location');
+}
+);
+
 app.get('/connexion', function (req, res) {
     res.render('login', {error:null});
 }
 );
+
+app.get("/deconnexion", function (req, res){
+    req.session.destroy(function(err) {
+        if (err) {
+            return res.status(500).send("Erreur lors de la deconnexion");
+        }
+        res.redirect("/");
+    });
+});
 
 app.post('/connexion', async function(req, res){
     const login = req.body.login;
