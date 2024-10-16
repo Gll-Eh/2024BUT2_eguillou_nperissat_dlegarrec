@@ -112,3 +112,59 @@
 .blue .price {
     background-color: #00AEEF;
 }
+.CCsection-steps {
+    display: flex;
+    justify-content: space-between;
+    width: 1230px;
+}
+.CCstep {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+.CCcontainer {
+    height: 385px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.CCcontainer h1 {
+ margin: 0;
+}
+.CCcontainer .cadresection {
+    width: 1260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.CCPrix {
+    width: 220px;
+    height: 55px;
+    background-color: #F38923;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+.CCPrix h2 {
+    font-size: small;
+    font-weight: 100;
+}
+.CCPrix h2 strong {
+    font-size: x-large;
+}
+.CCImg {
+    height: 210px;
+    background-color: #E9E9E9;
+    margin-bottom: 10px;
+}
+.CCImg img {
+    height: 210px;
+}
+
+.CCstep p {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 0px;
+}
