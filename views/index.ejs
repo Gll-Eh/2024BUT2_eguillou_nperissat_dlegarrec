@@ -50,51 +50,19 @@
         </h1>
       </div>
       <div class="CCsection-steps">
+        <%= bestSellers.filter(function(element) { 
+          return element.id > 5; 
+        }).forEach(function(element) { %>
         <div class="CCstep">
           <div class="CCPrix">
             <h2><strong>39€</strong>/30 jours</h2>
           </div>
           <div class="CCImg">
-            <img src="img\rameur.png" alt="">
+            <img src="/img/<%= element.image %>" alt="">
           </div>
-          <p>Nom du produit</p>
+          <p><%= element.type %> <%= element.modele %></p>
         </div>
-        <div class="CCstep">
-          <div class="CCPrix">
-            <h2><strong>39€</strong>/30 jours</h2>
-          </div>
-          <div class="CCImg">
-            <img src="img\rameur.png" alt="">
-          </div>
-          <p>Nom du produit</p>
-        </div>
-        <div class="CCstep">
-          <div class="CCPrix">
-            <h2><strong>39€</strong>/30 jours</h2>
-          </div>
-          <div class="CCImg">
-            <img src="img\rameur.png" alt="">
-          </div>
-          <p>Nom du produit</p>
-        </div>
-        <div class="CCstep">
-          <div class="CCPrix">
-            <h2><strong>39€</strong>/30 jours</h2>
-          </div>
-          <div class="CCImg">
-            <img src="img\rameur.png" alt="">
-          </div>
-          <p>Nom du produit</p>
-        </div>
-        <div class="CCstep">
-          <div class="CCPrix">
-            <h2><strong>39€</strong>/30 jours</h2>
-          </div>
-          <div class="CCImg">
-            <img src="img\rameur.png" alt="">
-          </div>
-          <p>Nom du produit</p>
-        </div>
+        <% }); %>
       </div>
     </div>
   </div>

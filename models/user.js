@@ -26,4 +26,29 @@ async function checkLogin (login) {
     });
 }
 
-module.exports = { getUserById, checkLogin };
+async function get_catalogue () {
+    sql = "SELECT * FROM produit";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+
+};
+async function get_accueil () {
+    sql = "SELECT * FROM produit";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+
+};
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil };

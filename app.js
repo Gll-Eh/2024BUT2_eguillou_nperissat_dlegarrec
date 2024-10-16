@@ -25,7 +25,8 @@ app.get('/', async function (req, res) {
 
     try {
         const user = await userModel.getUserById(req.session.userId);
-        res.render('index', {user});
+        const bestSellers = await userModel.get_accueil();
+        res.render('index', {user}, {bestSellers});
         console.log(user)
     } catch (err) {
         console.log(err);
@@ -39,8 +40,15 @@ app.get('/produit', function (req, res) {
     }
 );
 
-app.get('/catalogue', function (req, res) {
-    res.render('catalogue');
+app.get('/catalogue', async function (req, res) {
+
+    try {
+        const products = await userModel.get_catalogue();
+        res.render('catalogue', {products});
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur');
+    }
 }
 );
 
