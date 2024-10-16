@@ -1,17 +1,17 @@
 
-.product-container {
+.produit-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
     background-color: #fff;
 }
 
-.product-image img {
+.produit-image img {
     width: 300px;
     height: auto;
 }
 
-.product-info {
+.produit-info {
     max-width: 500px;
 }
 
