@@ -50,18 +50,18 @@
         </h1>
       </div>
       <div class="CCsection-steps">
-        <%= bestSellers.filter(function(element) { 
-          return element.id > 5; 
-        }).forEach(function(element) { %>
-        <div class="CCstep">
-          <div class="CCPrix">
-            <h2><strong>39€</strong>/30 jours</h2>
-          </div>
-          <div class="CCImg">
-            <img src="/img/<%= element.image %>" alt="">
-          </div>
-          <p><%= element.type %> <%= element.modele %></p>
-        </div>
+        <% bestSellers.forEach(function(element, index) { %>
+          <% if (index < 5) { %> <!-- Limite à 5 éléments -->
+            <div class="CCstep">
+              <div class="CCPrix">
+                <h2><strong>39€</strong>/30 jours</h2>
+              </div>
+              <div class="CCImg">
+                <img src="/img/<%= element.image %>" alt="<%= element.modele %>">
+              </div>
+              <p><%= element.type %> <%= element.modele %></p>
+            </div>
+          <% } %>
         <% }); %>
       </div>
     </div>

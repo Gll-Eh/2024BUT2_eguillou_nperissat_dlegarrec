@@ -1,9 +1,9 @@
 <main>
-    <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" href="/css/connexion.css">
     
     <!-- Ajout du logo -->
     <div class="logo-container">
-        <img src="img/Locfit_logo.png" alt="Logo" class="logo">
+        <img src="/img/Locfit_logo.png" alt="Logo" class="logo">
     </div>
     
     <!-- Ajout de la phrase de bienvenue -->
@@ -12,13 +12,12 @@
     <p>
         <%= error %>
     </p>
-
     <form action="/connexion" method="post">
         <label for="">Login :</label>
         <input type="text" name="login"/>
         <label for="">Mot de Passe :</label>
         <input type="password" name="password"/>
-        <input type="submit"/>
+        <button type="submit">Connexion</button>
 
         <div class="forgot-password">
             <a href="/forgot-password">Mot de passe oublié ?</a>

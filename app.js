@@ -18,22 +18,32 @@ app.use(session({
 
 
 
-app.get('/', async function (req, res) {
+app.get('/connexion', async function (req, res) {
     if (!req.session.userId) {
         return res.redirect("/connexion");
     }
 
     try {
         const user = await userModel.getUserById(req.session.userId);
-        const bestSellers = await userModel.get_accueil();
-        res.render('index', {user}, {bestSellers});
-        console.log(user)
+        res.render('index', {user});
+        console.log(user);
     } catch (err) {
         console.log(err);
         res.status(500).send('Erreur');
     }
 });
 
+app.get('/', async function (req,res) {
+
+    try {
+        const bestSellers = await userModel.get_accueil();
+        res.render('index', {bestSellers});
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur');
+    }
+    
+})
 
 app.get('/produit', function (req, res) {
         res.render('produit');
