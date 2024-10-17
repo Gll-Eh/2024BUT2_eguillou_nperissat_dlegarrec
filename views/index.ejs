@@ -1,5 +1,11 @@
 <%-include('header'); -%>
 
+
+
+<% if (user) { %>
+  <h1>Bonjour <%= user.prenom %> <%= user.nom %>, vous êtes <%= user.type_utilisateur %></h1>
+<% } %>
+
 <article id="Accueil" class="container1">
   <div class="content">
     <img src="/img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />

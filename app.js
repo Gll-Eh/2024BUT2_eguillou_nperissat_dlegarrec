@@ -33,17 +33,23 @@ app.get('/login', async function (req, res) {
     }
 });
 
-app.get('/', async function (req,res) {
 
+app.get('/', async function (req, res) {
     try {
         const bestSellers = await userModel.get_accueil();
-        res.render('index', {bestSellers});
+
+        let user = null;
+        if (req.session.userId) {
+            user = await userModel.getUserById(req.session.userId);
+        }
+
+        res.render('index', { bestSellers, user });
     } catch (err) {
         console.log(err);
         res.status(500).send('Erreur');
     }
-    
-})
+});
+
 
 app.get('/produit', function (req, res) {
         res.render('produit');
