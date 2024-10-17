@@ -18,7 +18,7 @@ app.use(session({
 
 
 
-app.get('/connexion', async function (req, res) {
+app.get('/login', async function (req, res) {
     if (!req.session.userId) {
         return res.redirect("/connexion");
     }
