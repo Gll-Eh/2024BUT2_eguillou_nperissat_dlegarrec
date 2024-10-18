@@ -2,6 +2,25 @@
 
 /* -----------------------accueil-----------------------*/
 
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-logout {
+    background-color: #ff4b5c;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-logout:hover {
+    background-color: #ff6f74;
+}
+
+
 .container1 {
     margin-top: 50px;
     display: flex;

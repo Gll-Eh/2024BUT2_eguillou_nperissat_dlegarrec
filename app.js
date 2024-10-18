@@ -78,12 +78,12 @@ app.get('/connexion', function (req, res) {
 }
 );
 
-app.get("/deconnexion", function (req, res){
-    req.session.destroy(function(err) {
+app.get('/deconnexion', function (req, res) {
+    req.session.destroy(function (err) {
         if (err) {
-            return res.status(500).send("Erreur lors de la deconnexion");
+            return res.status(500).send("Erreur lors de la déconnexion");
         }
-        res.redirect("/");
+        res.redirect('/');
     });
 });
 

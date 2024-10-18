@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/catalogue.css">
     <link rel="stylesheet" href="/css/location.css">
     <link rel="stylesheet" href="/css/produit.css">
+    <link rel="icon" href="/img/Locfit_logo.png" type="image/png">
     <title>Locfit</title>
 </head>
 
@@ -43,10 +44,20 @@
         </div>
         <div class="icon-group">
             <img src="/img/compte.png" class="icon-link">
-            <a href="/connexion">Compte</a>
+            <a href="/compte">Compte</a>
         </div>
     </div>
+
+    <div class="connexion-button">
+        <% if (user) { %>
+            <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
+        <% } else { %>
+            <a href="/connexion" class="btn-connexion">Connexion</a>
+        <% } %>
+    </div>
+
 </header>
+
 <nav class="menu">
     <ul>
         <li><a href="/">Accueil</a></li>

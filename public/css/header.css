@@ -83,6 +83,30 @@ body {
     font-size: 12px;
 }
 
+/* Style pour le bouton Connexion */
+/* Style pour le bouton Connexion en dehors du navbar-right */
+.connexion-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Ajustez selon vos besoins */
+}
+
+.btn-connexion {
+    background-color: #40512D; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Taille du bouton */
+    border-radius: 5px; /* Bords arrondis */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-connexion:hover {
+    background-color: #6c7d50; /* Couleur de fond au survol */
+}
+
+
+
 /* Menu styling */
 .menu {
     background-color: white;

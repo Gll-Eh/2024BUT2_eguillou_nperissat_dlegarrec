@@ -1,10 +1,17 @@
-<%-include('header'); -%>
+<%- include('header'); -%>
 
-
+<!-- 
 
 <% if (user) { %>
-  <h1>Bonjour <%= user.prenom %> <%= user.nom %>, vous êtes <%= user.type_utilisateur %></h1>
+    <div class="user-info">
+        <h1>Bonjour <%= user.prenom %>, vous êtes <%= user.type_utilisateur %></h1>
+        <a href="/deconnexion" class="btn-logout">Déconnexion</a>
+    </div>
 <% } %>
+
+  -->
+
+
 
 <article id="Accueil" class="container1">
   <div class="content">
