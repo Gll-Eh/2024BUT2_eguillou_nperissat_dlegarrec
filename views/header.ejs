@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/catalogue.css">
     <link rel="stylesheet" href="/css/location.css">
     <link rel="stylesheet" href="/css/produit.css">
-    <link rel="stylesheet" href="/css/creationagent.css">
     <link rel="icon" href="/img/Locfit_logo.png" type="image/png">
     <title>Locfit</title>
 </head>
@@ -54,7 +53,7 @@
             <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
             
             <% if (user.type_utilisateur === 'admin') { %>
-                <a href="/creation-agent" class="btn-creation-agent">Création Agent</a>
+                <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
             <% } %>
             
         <% } else { %>

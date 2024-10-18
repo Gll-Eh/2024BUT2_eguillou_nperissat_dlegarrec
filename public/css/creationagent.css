@@ -1,0 +1,116 @@
+/* ------------------- création agent ------------------- */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Couleur de fond douce */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hauteur de la fenêtre */
+}
+
+main {
+    background-color: #ffffff; /* Fond blanc pour le formulaire */
+    width: 400px; /* Largeur fixe */
+    padding: 30px; /* Espacement intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    text-align: center; /* Centrer le contenu */
+}
+
+/* Stylisation du logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+.logo {
+    width: 100px; /* Largeur du logo */
+    height: auto; /* Hauteur automatique */
+}
+
+/* Phrase de bienvenue */
+.welcome-message {
+    color: #214014; /* Couleur du texte */
+    font-size: 22px; /* Taille de police augmentée */
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+/* Messages d'erreur */
+.error-message {
+    color: red; /* Couleur rouge pour les erreurs */
+    font-size: 14px; /* Taille de police */
+    margin: 10px 0; /* Marges */
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column; /* Aligner les éléments en colonne */
+}
+
+/* Labels */
+label {
+    margin-bottom: 8px; /* Espacement en bas */
+    color: #333; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Champs de saisie */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    padding: 12px; /* Espacement intérieur */
+    margin-bottom: 20px; /* Espacement en bas */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+    width: 100%; /* Largeur totale */
+    font-size: 14px; /* Taille de police */
+    transition: border 0.3s; /* Transition douce pour le focus */
+}
+
+/* Effet au focus des champs de saisie */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+    border-color: #214014; /* Changer la couleur de la bordure */
+    outline: none; /* Enlever le contour par défaut */
+}
+
+/* Bouton de soumission */
+input[type="submit"] {
+    background-color: #214014; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 12px; /* Espacement intérieur */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en main */
+    font-weight: bold; /* Texte en gras */
+    transition: background-color 0.3s; /* Transition douce pour le survol */
+}
+
+/* Effet au survol du bouton de soumission */
+input[type="submit"]:hover {
+    background-color: #45a049; /* Changer la couleur de fond au survol */
+}
+
+/* Lien pour mot de passe oublié */
+.forgot-password {
+    margin-top: 10px; /* Espacement en haut */
+}
+
+.forgot-password a {
+    color: #214014; /* Couleur du lien */
+    text-decoration: none; /* Pas de soulignement */
+    font-size: 14px; /* Taille de police */
+}
+
+.forgot-password a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+}
+
+/* ------------------- création agent ------------------- */
