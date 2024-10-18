@@ -1,2 +1,68 @@
-<%-include('header'); -%>
-
+<main>
+<div class="insContainer">
+    <form action="/connexion" method="post"></form>
+        <h1>Inscription</h1>
+        <div class="identity">
+            <div class="nom">
+                <h2>Nom</h2>
+                <div class="donneesIns">
+                    <input type="text" name="nom" placeholder="nom de famille"/>
+                </div>
+            </div>
+            <div class="prenom">
+                <h2>Prénom</h2>
+                <div class="donneesIns">
+                    <input type="text" name="prenom" placeholder="Votre prénom"/>
+                </div>
+            </div>
+        </div>
+        <div class="adresse">
+            <h2>Adresse</h2>
+            <div class="donneesIns">
+                <input type="text" name="adresse" placeholder="Votre adresse"/>
+            </div>
+        </div>
+        <div class="adressePostale">
+            <div class="nom">
+                <h2>Code postale</h2>
+                <div class="donneesIns">
+                    <input type="text" name="codePostale" placeholder="Le code postale"/>
+                </div>
+            </div>
+            <div class="nom">
+                <h2>Ville</h2>
+                <div class="donneesIns">
+                    <input type="text" name="ville" placeholder="Le nom de votre ville"/>
+                </div>
+            </div>
+        </div>
+        <div class="adresse">
+            <h2>Numéro de téléphone</h2>
+            <div class="donneesIns">
+                <input type="text" name="numeroTel" placeholder="Votre numéro de téléphone"/>
+            </div>
+        </div>
+        <div class="adresse">
+            <h2>Adresse mail</h2>
+            <div class="donneesIns">
+                <input type="text" name="adresseMail" placeholder="Votre adresse mail"/>
+            </div>
+        </div>
+        <div class="adressePostale">
+            <div class="nom">
+                <h2>Mot de passe</h2>
+                <div class="donneesIns">
+                    <input type="text" name="MDP" placeholder="Votre mot de passe"/>
+                </div>
+            </div>
+            <div class="nom">
+                <h2>Confirmer votre mot de passe</h2>
+                <div class="donneesIns">
+                    <input type="text" name="VMDP" placeholder="Confirmer le mot de passe"/>
+                </div>
+            </div>
+            <button class="input" type="submit">Inscription</button>
+        </div>
+    </form>
+</div>
+</main>
