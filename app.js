@@ -56,6 +56,11 @@ app.get('/produit', function (req, res) {
     }
 );
 
+app.get('/inscription', function (req, res) {
+    res.render('inscription');
+}
+);
+
 app.get('/catalogue', async function (req, res) {
 
     try {
