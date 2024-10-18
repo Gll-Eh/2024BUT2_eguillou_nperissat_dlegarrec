@@ -1,48 +1,57 @@
 <main>
-<div class="insContainer">
-    <form action="/" method="post">
-        <h1>Inscription</h1>
-        <div class="identity">
-            <div class="nom">
-                <h2>Nom</h2>
-                <div class="donneesIns">
-                    <input type="text" name="nom" placeholder="nom de famille"/>
+    <div class="insContainer">
+        <form action="/" method="post">
+            <h1>Inscription</h1>
+            <div class="identity">
+                <div class="nom">
+                    <label for="nom"><h2>Nom</h2></label>
+                    <div class="donneesIns">
+                        <input type="text" id="nom" name="nom" placeholder="nom de famille" required/>
+                    </div>
+                </div>
+                <div class="prenom">
+                    <label for="prenom"><h2>Prénom</h2></label>
+                    <div class="donneesIns">
+                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required/>
+                    </div>
                 </div>
             </div>
-            <div class="prenom">
-                <h2>Prénom</h2>
-                <div class="donneesIns">
-                    <input type="text" name="prenom" placeholder="Votre prénom"/>
+            <div class="identity">
+                <div class="date">
+                    <label for="ddn"><h2>Date de naissance</h2></label>
+                    <div class="donneesIns">
+                        <input type="date" id="ddn" name="ddn" required/>
+                    </div>
+                </div>
+                <div class="pseudo">
+                    <label for="login"><h2>Pseudo</h2></label>
+                    <div class="donneesIns">
+                        <input type="text" id="login" name="login" placeholder="Votre pseudo" required/>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="prenom">
-            <h2>Date de naissance</h2>
-            <div class="donneesIns">
-                <input type="text" name="ddn" placeholder="jj/mm/aa"/>
-            </div>
-        </div>
-        <div class="adresse">
-            <h2>Adresse mail</h2>
-            <div class="donneesIns">
-                <input type="text" name="adresseMail" placeholder="Votre adresse mail"/>
-            </div>
-        </div>
-        <div class="adressePostale">
-            <div class="nom">
-                <h2>Mot de passe</h2>
+            <div class="adresse">
+                <label for="email"><h2>Adresse mail</h2></label>
                 <div class="donneesIns">
-                    <input type="text" name="MDP" placeholder="Votre mot de passe"/>
+                    <input type="email" id="email" name="email" placeholder="Votre adresse mail" required/>
                 </div>
             </div>
-            <div class="nom">
-                <h2>Confirmer votre mot de passe</h2>
-                <div class="donneesIns">
-                    <input type="text" name="VMDP" placeholder="Confirmer le mot de passe"/>
+            <div class="adressePostale">
+                <div class="motdepasse">
+                    <label for="password"><h2>Mot de passe</h2></label>
+                    <div class="donneesIns">
+                        <input type="password" id="password" name="password" placeholder="Votre mot de passe" required/>
+                    </div>
                 </div>
+                <div class="motdepasse">
+                    <label for="password_confirm"><h2>Confirmer votre mot de passe</h2></label>
+                    <div class="donneesIns">
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmer le mot de passe" required/>
+                    </div>
+                </div>
+                <button class="input" type="submit">Inscription</button>
             </div>
-            <button class="input" type="submit">Inscription</button>
-        </div>
-    </form>
-</div>
-</main>
+        </form>
+    </div>
+    </main>
+    

@@ -140,6 +140,22 @@ app.post('/creationagent', async function(req, res) {
     }
 });
 
+app.post('/inscription', async function(req, res) {
+    const { nom, prenom, login, password, ddn, email } = req.body;
+
+    // Hasher le mot de passe
+    const hashedPassword = md5(password);
+
+    try {
+        // Insérer le nouvel agent dans la base de données
+        await userModel.createAgent(nom, prenom, login, hashedPassword, ddn, email);
+        res.redirect('/'); // Rediriger vers la page d'accueil après la création
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erreur lors de la création de l\'agent');
+    }
+});
+
 
 
 
