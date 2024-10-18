@@ -148,7 +148,7 @@ app.post('/inscription', async function(req, res) {
 
     try {
         // Insérer le nouvel agent dans la base de données
-        await userModel.createAgent(nom, prenom, login, hashedPassword, ddn, email);
+        await userModel.createClient(nom, prenom, login, hashedPassword, ddn, email);
         res.redirect('/'); // Rediriger vers la page d'accueil après la création
     } catch (err) {
         console.error(err);
