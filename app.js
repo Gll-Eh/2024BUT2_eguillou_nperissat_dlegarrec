@@ -113,6 +113,36 @@ app.post('/connexion', async function(req, res){
 
 
 
+
+
+app.get('/creationagent', function(req, res) {
+    if (!req.session.userId || req.session.role !== 'admin') {
+        return res.status(403).send('Accès interdit'); // Accès interdit pour les utilisateurs non-admin
+    }
+    res.render('creationagent');
+});
+
+// Route pour traiter le formulaire de création d'agent
+app.post('/create-agent', async function(req, res) {
+    const { nom, prenom, login, password, ddn, email } = req.body;
+
+    // Hasher le mot de passe
+    const hashedPassword = md5(password);
+
+    try {
+        // Insérer le nouvel agent dans la base de données
+        await userModel.createAgent(nom, prenom, login, hashedPassword, ddn, email);
+        res.redirect('/'); // Rediriger vers la page d'accueil après la création
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erreur lors de la création de l\'agent');
+    }
+});
+
+
+
+
+
 app.use( function (req, res) {
     res.status(404).render("404");
 })
