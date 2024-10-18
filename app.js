@@ -122,8 +122,9 @@ app.get('/creationagent', function(req, res) {
     res.render('creationagent');
 });
 
+
 // Route pour traiter le formulaire de création d'agent
-app.post('/create-agent', async function(req, res) {
+app.post('/creationagent', async function(req, res) {
     const { nom, prenom, login, password, ddn, email } = req.body;
 
     // Hasher le mot de passe

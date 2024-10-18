@@ -61,4 +61,17 @@ async function createAgent(nom, prenom, login, password, ddn, email) {
     });
 }
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent };
+async function createClient(nom, prenom, login, password, ddn, email) {
+    const sql = "INSERT INTO utilisateur (nom, prenom, login, password, ddn, email, type_utilisateur) VALUES (?, ?, ?, ?, ?, ?, 'client')";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, [nom, prenom, login, password, ddn, email], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient};
