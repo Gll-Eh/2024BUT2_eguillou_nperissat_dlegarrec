@@ -1,6 +1,5 @@
 /* -----------------------Inscription-----------------------*/
-
-.insContainer {
+main {
     margin-top: 50px;
     display: flex;
     justify-content: center;
@@ -8,24 +7,41 @@
     flex-direction: column;
 }
 
-form {
-    width: 500px;
-    background-color: #fff;
+.insContainer {
+    background-color: #ffffff;
+    width: 600px;
+    height: 650px;
+    margin: 100px;;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+width: 400px;
 }
 
 h1 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
-    color: #214014;
+    color: #45a049;
 }
 
 h2 {
     font-size: 1.2em;
-    color: #4C7B42;
+    color: #45a049;
     margin-bottom: 10px;
 }
 
