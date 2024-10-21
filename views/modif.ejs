@@ -1,0 +1,40 @@
+<main>
+    <link rel="stylesheet" href="/css/modif.css">
+    
+    <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1> <!-- Phrase de bienvenue -->
+
+    <div class="user-info">
+        <h2>Récapitulatif de vos informations :</h2>
+        <ul>
+            <li><strong>Nom :</strong> <%= user.nom %></li>
+            <li><strong>Prénom :</strong> <%= user.prenom %></li>
+            <li><strong>Date de naissance :</strong> <%= user.ddn %></li>
+            <li><strong>Adresse e-mail :</strong> <%= user.email %></li>
+            <li><strong>Login :</strong> <%= user.login %></li>
+            <li><strong>Type d'utilisateur :</strong> <%= user.type_utilisateur %></li>
+        </ul>
+    </div>
+
+    <div class="favoris">
+        <h2>Mes Produits Favoris</h2>
+        <div class="produits-favoris">
+            <% if (favoris.length > 0) { %>
+                <% favoris.forEach(function(produit) { %>
+                    <div class="produit">
+                        <img src="<%= produit.image_url %>" alt="<%= produit.nom %>" class="produit-image"> <!-- Assurez-vous d'avoir l'URL de l'image -->
+                        <h3><%= produit.nom %></h3>
+                        <p>Prix : <%= produit.prix %> €</p>
+                        <button onclick="window.location.href='/produit/<%= produit.id %>';">Voir le produit</button>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>Vous n'avez pas de produits favoris pour le moment.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button onclick="window.location.href='/';">Retour à l'accueil</button>
+        <button onclick="window.location.href='/logout';">Déconnexion</button>
+    </div>
+</main>
