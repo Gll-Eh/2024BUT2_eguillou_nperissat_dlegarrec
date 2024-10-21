@@ -2,39 +2,43 @@
 
 
 
+    <div class="container_catalogue">
+        <h1>Rameurs :</h1>
+        <h3>filtres</h3>
+        <div class="filters">
+            <button class="filter-btn">Marque</button>
+            <button class="filter-btn">Prix</button>
+            <button class="filter-btn">Resistance</button>
+        </div>
 
-        <div class="container_catalogue">
-            <h1>Rameurs :</h1>
-            <h3>filtres</h3>
-            <div class="filters">
-                <button class="filter-btn">Marque</button>
-                <button class="filter-btn">Prix</button>
-                <button class="filter-btn">Resistance</button>
-            </div>
+        <div class="product-list_catalogue">
 
-            <div class="product-list_catalogue">
-
-                <% products.forEach(function(element) { %>
+            <% products.forEach(function(element) { %>
                 <div class="product_catalogue">
                     <img src="/img/<%= element.image %>" alt="<%= element.type %>">
-                    <h2><%= element.type %> <%= element.modele %></h2>
+                    <h2>
+                        <%= element.type %>
+                            <%= element.modele %>
+                    </h2>
                     <p>39€/30 jours</p>
-                    <div class="action-buttons"> 
+                    <div class="action-buttons">
                         <a href="/produit" class="add-to-cart">Voir</a>
                         <a href="page-lien.html">
                             <img class="image-link" src="/img/favoris.png" alt="Arrow icon">
                         </a>
                     </div>
                 </div>
+
+
                 <% }); %>
 
-               
 
-                
 
-            </div>
+
+
         </div>
-  
+    </div>
+
 
 
 
