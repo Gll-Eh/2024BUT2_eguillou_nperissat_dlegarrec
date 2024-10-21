@@ -49,10 +49,10 @@
     </div>
 
     <div class="connexion-button">
-        <% if (user) { %>
+        <% if (isAuth) { %>
             <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
             
-            <% if (user.type_utilisateur === 'admin') { %>
+            <% if (role === 'admin') { %>
                 <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
             <% } %>
             

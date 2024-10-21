@@ -16,7 +16,19 @@ app.use(session({
     saveUninitialized : false
 }));
 
-
+app.use(function (req,res, next) {
+    if (req.session.userId) {
+        res.locals.isAuth = true;
+        res.locals.id = req.session.userId;
+        res.locals.role =  req.session.role;
+    }
+    else {
+        res.locals.isAuth = false;
+        res.locals.id = null;
+        res.locals.role =  null;
+    }
+    next();
+});
 
 app.get('/login', async function (req, res) {
     if (!req.session.userId) {
