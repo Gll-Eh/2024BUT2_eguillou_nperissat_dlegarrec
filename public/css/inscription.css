@@ -15,7 +15,8 @@ main {
     padding: 30px;
     display: flex;
     justify-content: center;
-    border-radius: 2px;
+    border-radius: 20px;
+    border: 1px solid #214014;
 }
 
 .logo {
@@ -29,7 +30,7 @@ main {
 }
 
 form {
-width: 400px;
+    width: 400px;
 }
 
 h1 {
