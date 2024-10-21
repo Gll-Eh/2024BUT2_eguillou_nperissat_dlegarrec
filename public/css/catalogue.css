@@ -47,9 +47,15 @@ h1 {
 
 .product_catalogue {
     background-color: white;
+    margin-top: 20px;
     padding: 20px;
     text-align: center;
     width: 400px;
+}
+
+.imgProduct{
+    width: 200px;
+    height: 250px;
 }
 
 .product_catalogue img {
