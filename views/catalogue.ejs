@@ -1,18 +1,16 @@
 <%-include('header'); -%>
 
-
-
-    <div class="container_catalogue">
-        <h1>Rameurs :</h1>
+<div class="filtreContainer">
+<h1>Rameurs :</h1>
         <h3>filtres</h3>
         <div class="filters">
             <button class="filter-btn">Marque</button>
             <button class="filter-btn">Prix</button>
             <button class="filter-btn">Resistance</button>
         </div>
-
+</div>
+    <div class="container_catalogue">
         <div class="product-list_catalogue">
-
             <% products.forEach(function(element) { %>
                 <div class="product_catalogue">
                     <img class="imgProduct" src="/img/<%= element.image %>" alt="<%= element.type %>">
@@ -28,14 +26,7 @@
                         </a>
                     </div>
                 </div>
-
-
                 <% }); %>
-
-
-
-
-
         </div>
     </div>
 
