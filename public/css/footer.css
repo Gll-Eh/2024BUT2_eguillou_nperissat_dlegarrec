@@ -7,6 +7,14 @@
     align-items: center;
 }
 
+.footer h1 {
+    color: white;
+}
+
+.footer h2 {
+    color: white;
+}
+
 .footerTitle {
  color: #fff;
 }
