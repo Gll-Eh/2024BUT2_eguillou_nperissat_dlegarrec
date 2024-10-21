@@ -1,4 +1,6 @@
 <main>
+    <link rel="stylesheet" href="/css/inscription.css">
+
     <div class="insContainer">
         <form action="/inscription" method="post">
             <h1>Inscription</h1>
@@ -6,7 +8,7 @@
                 <div class="nom">
                     <label for="nom"><h2>Nom</h2></label>
                     <div class="donneesIns">
-                        <input type="text" id="nom" name="nom" placeholder="nom de famille" required/>
+                        <input type="text" id="nom" name="nom" placeholder="Nom de famille" required/>
                     </div>
                 </div>
                 <div class="prenom">
@@ -43,9 +45,12 @@
                         <input type="password" id="password" name="password" placeholder="Votre mot de passe" required/>
                     </div>
                 </div>
-                <button class="input" type="submit">Inscription</button>
+
+                <div class="form-buttons">
+                    <button type="submit">Inscription</button>
+                    <a href="/" class="btn-cancel">Annuler</a>
+                </div>
             </div>
         </form>
     </div>
-    </main>
-    
+</main>

@@ -1,0 +1,121 @@
+/* -----------------------Inscription-----------------------*/
+
+.insContainer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    width: 500px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #214014;
+}
+
+h2 {
+    font-size: 1.2em;
+    color: #4C7B42;
+    margin-bottom: 10px;
+}
+
+.donneesIns {
+    margin-bottom: 20px;
+}
+
+.donneesIns input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.identity {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.nom, .prenom, .date, .pseudo {
+    width: 48%;
+}
+
+.adressePostale {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style des boutons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+button, .btn-cancel {
+    width: 48%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    background-color: #214014;
+    color: white;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: #ff4b5c;
+    color: white;
+    text-decoration: none; 
+}
+
+.btn-cancel:hover {
+    background-color: #ff6f74;
+}
+
+/* Bouton de retour à l'accueil */
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #214014;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-back:hover {
+    background-color: #45a049;
+}
+
+.btn-back i {
+    font-size: 1.5em;
+}
