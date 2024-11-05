@@ -1,7 +1,9 @@
+<%-include('header'); -%>
+
 <main>
     <link rel="stylesheet" href="/css/modif.css">
     
-    <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1> <!-- Phrase de bienvenue -->
+    <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1> 
 
     <div class="user-info">
         <h2>Récapitulatif de vos informations :</h2>
@@ -11,7 +13,6 @@
             <li><strong>Date de naissance :</strong> <%= user.ddn %></li>
             <li><strong>Adresse e-mail :</strong> <%= user.email %></li>
             <li><strong>Login :</strong> <%= user.login %></li>
-            <li><strong>Type d'utilisateur :</strong> <%= user.type_utilisateur %></li>
         </ul>
     </div>
 
@@ -35,6 +36,5 @@
 
     <div class="actions">
         <button onclick="window.location.href='/';">Retour à l'accueil</button>
-        <button onclick="window.location.href='/logout';">Déconnexion</button>
     </div>
 </main>

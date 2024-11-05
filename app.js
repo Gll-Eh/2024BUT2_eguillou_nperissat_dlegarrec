@@ -68,10 +68,6 @@ app.get('/produit', function (req, res) {
     }
 );
 
-app.get('/modif', function (req, res) {
-    res.render('modif');
-}
-);
 
 app.get('/inscription', function (req, res) {
     if (req.session.userId) {
@@ -92,6 +88,22 @@ app.get('/catalogue', async function (req, res) {
     }
 }
 );
+
+app.get('/modif', async function (req, res) {
+    if (!req.session.userId) {
+        return res.redirect('/connexion');
+    }
+
+    try {
+        const user = await userModel.getUserById(req.session.userId);
+        const favoris = []; 
+        res.render('modif', { user, favoris });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Erreur lors de la récupération des informations utilisateur");
+    }
+});
+
 
 app.get('/location', function (req, res) {
     res.render('location');
