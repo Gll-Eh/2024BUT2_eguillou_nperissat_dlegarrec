@@ -19,7 +19,9 @@ main {
     margin-bottom: 20px;
 }
 
-
+#info-list{
+    margin: 20px;
+}
 
 h1 {
     font-size: 2em;

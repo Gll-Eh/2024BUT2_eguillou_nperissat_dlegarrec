@@ -11,7 +11,6 @@
         <ul id="info-list">
             <li><strong>Nom :</strong> <%= user.nom %></li>
             <li><strong>Prénom :</strong> <%= user.prenom %></li>
-            <li><strong>Date de naissance :</strong> <%= user.ddn %></li>
             <li><strong>Adresse e-mail :</strong> <%= user.email %></li>
             <li><strong>Login :</strong> <%= user.login %></li>
             <li><strong>Type d'utilisateur :</strong> <%= user.type_utilisateur %></li>
@@ -24,7 +23,7 @@
 
     <div id="modif-form" style="display: none;">
         <h2>Modifier vos informations :</h2>
-        <form action="/update-user" method="post">
+        <form action="/modif-compte" method="post">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" value="<%= user.nom %>" required>
 
