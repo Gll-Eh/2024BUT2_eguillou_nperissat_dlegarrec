@@ -36,6 +36,18 @@ async function get_catalogue () {
     });
 }
 
+async function get_produit (id) {
+    const sql = "SELECT * FROM produit WHERE id = 1";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
 async function get_accueil () {
     const sql = "SELECT * FROM produit";
     return new Promise((resolve, reject) => {
@@ -74,4 +86,4 @@ async function createClient(nom, prenom, login, password, ddn, email) {
 }
 
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient};
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, get_produit};

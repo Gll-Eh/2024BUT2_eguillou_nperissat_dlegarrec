@@ -63,8 +63,15 @@ app.get('/', async function (req, res) {
 });
 
 
-app.get('/produit', function (req, res) {
-        res.render('produit');
+app.get('/produit/:id', async function (req, res) {
+    const id = req.params.id;
+    try {
+        const products = await userModel.get_produit(id);
+        res.render('produit', {products});
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur');
+    }
     }
 );
 
@@ -176,7 +183,16 @@ app.post('/inscription', async function(req, res) {
     }
 });
 
+app.get('/produit', async (req, res) => {
 
+    try {
+        const produits = await userModel.get_produit();
+        res.render('produit', {produits});
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur');
+    }
+});
 
 
 

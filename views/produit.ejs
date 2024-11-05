@@ -1,10 +1,11 @@
 <%-include('header'); -%>
 
 <body>
+    <% products.forEach(function(element) { %>
     <div class="produit-container">
         <!-- Product Image -->
         <div class="product-image">
-            <img src="img/rameur.png" alt="Rameur Professionnel">
+            <img src="/img/<%= element.image %>" alt="Rameur Professionnel">
         </div>
 
         <!-- Product Info -->
@@ -41,7 +42,7 @@
             <span>Lancer la vidéo explicative</span>
         </a>
     </div>
-
+<% }); %>
 </body>
 </html>
 

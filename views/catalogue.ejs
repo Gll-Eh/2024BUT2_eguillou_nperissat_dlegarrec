@@ -19,12 +19,14 @@
                             <%= element.modele %>
                     </h2>
                     <p>39€/30 jours</p>
-                    <div class="action-buttons">
-                        <a href="/produit" class="add-to-cart">Voir</a>
+                    <form action="/produit" method="get" class="action-buttons">
+                        <input type="hidden" name="productId" value="<%= element.id %>">
+                        <button class="add-to-cart" type="submit">Voir</button>
+                        <!-- <a href="/produit" class="add-to-cart">Voir</a>-->
                         <a href="page-lien.html">
                             <img class="image-link" src="/img/favoris.png" alt="Arrow icon">
                         </a>
-                    </div>
+                    </form>
                 </div>
                 <% }); %>
         </div>
