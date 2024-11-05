@@ -74,4 +74,17 @@ async function createClient(nom, prenom, login, password, ddn, email) {
 }
 
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient};
+async function updateUser(id, nom, prenom, ddn, email, login) {
+    const sql = "UPDATE utilisateur SET nom = ?, prenom = ?, ddn = ?, email = ?, login = ? WHERE id = ?";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, [nom, prenom, ddn, email, login, id], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser };
+

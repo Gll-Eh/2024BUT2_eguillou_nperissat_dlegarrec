@@ -1,4 +1,4 @@
-/* -----------------------Page Modif-----------------------*/
+/* -----------------------Modification-----------------------*/
 main {
     margin-top: 50px;
     display: flex;
@@ -7,130 +7,148 @@ main {
     flex-direction: column;
 }
 
-.user-info, .favoris {
-    background-color: #ffffff;
+.user-info {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 50px;
     width: 600px;
-    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    border-radius: 20px;
-    border: 1px solid #214014;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
 
 h1 {
     font-size: 2em;
-    color: #214014;
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
+    color: #45a049;
 }
 
 h2 {
     font-size: 1.5em;
-    color: #45a049;
+    color: #214014;
     margin-bottom: 15px;
 }
 
-/* Style de la liste des informations utilisateur */
-
-.user-info {
-    display: flex;
-    flex-direction: column;
+.btn-modif {
+    background-color: #45a049;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.user-info ul {
-    list-style-type: none;
-    padding: 0;
+.btn-modif:hover {
+    background-color: #38a045;
 }
 
-.user-info li {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+#modif-form {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-/* Style des produits favoris */
+#modif-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #214014;
+}
+
+#modif-form input[type="text"],
+#modif-form input[type="date"],
+#modif-form input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+#modif-form button[type="submit"] {
+    background-color: #45a049;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#modif-form button[type="submit"]:hover {
+    background-color: #38a045;
+}
+
+#modif-form button[type="button"] {
+    background-color: #ff4b5c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#modif-form button[type="button"]:hover {
+    background-color: #ff6f74;
+}
+
+/* Section pour les produits favoris */
+.favoris {
+    margin-top: 20px;
+}
+
 .produits-favoris {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
 }
 
 .produit {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 10px;
-    width: 150px;
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .produit img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    max-width: 100%;
+    border-radius: 8px;
 }
 
 .produit h3 {
-    font-size: 1.1em;
-    margin-bottom: 8px;
+    font-size: 1.2em;
     color: #214014;
 }
 
 .produit p {
     font-size: 1em;
     color: #333;
-    margin-bottom: 10px;
 }
 
 .produit button {
-    width: 100%;
-    padding: 8px;
     background-color: #214014;
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .produit button:hover {
     background-color: #45a049;
-}
-
-/* Style des boutons d'action en bas de page */
-.actions {
-    display: flex;
-    justify-content: space-around;
-    width: 600px;
-    margin-top: 20px;
-}
-
-.actions button {
-    width: 45%;
-    padding: 12px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-}
-
-.actions button:first-child {
-    background-color: #214014;
-    color: white;
-}
-
-.actions button:first-child:hover {
-    background-color: #45a049;
-}
-
-.actions button:last-child {
-    background-color: #ff4b5c;
-    color: white;
-}
-
-.actions button:last-child:hover {
-    background-color: #ff6f74;
 }

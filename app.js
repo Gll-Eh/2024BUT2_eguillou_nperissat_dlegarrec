@@ -105,6 +105,23 @@ app.get('/modif', async function (req, res) {
 });
 
 
+app.post('/update-user', async function(req, res) {
+    const { nom, prenom, ddn, email, login } = req.body;
+    const userId = req.session.userId; // Assuming userId is stored in the session
+
+    try {
+        // Update the user information in the database
+        await userModel.updateUser(userId, nom, prenom, ddn, email, login);
+        res.redirect('/modif'); // Redirect to the modification page after update
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erreur lors de la mise à jour des informations');
+    }
+});
+
+
+
+
 app.get('/location', function (req, res) {
     res.render('location');
 }
