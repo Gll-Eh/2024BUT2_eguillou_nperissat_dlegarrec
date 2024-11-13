@@ -11,8 +11,6 @@
 
   -->
 
-
-
 <article id="Accueil" class="container1">
   <div class="content">
     <img src="/img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />
@@ -55,28 +53,36 @@
 </div>
 <!-- Section Produits -->
 
-  <div class="CCcontainer">
-    <div class="cadresection">
-      <div class="sectionTitle">
-        <h1>
-            Vos coups de coeur du moment <span style="color: green">&#10084;</span>
-        </h1>
+<div class="CCcontainer">
+  <div class="cadresection">
+    <div class="sectionTitle">
+      <h1>
+        Vos coups de coeur du moment <span style="color: green">&#10084;</span>
+      </h1>
+    </div>
+    <div class="CCsection-steps">
+      <% bestSellers.forEach(function(element, index) { %> <% if (index < 5) {
+      %>
+      <!-- Limite à 5 éléments -->
+      <div class="CCstep">
+        <div class="CCPrix">
+          <h2><strong><%= element.prix_location %>€</strong> /jour</h2>
+        </div>
+        <div class="CCImg">
+          <img src="/img/<%= element.image %>" alt="<%= element.modele %>" />
+        </div>
+        <p><%= element.marque %> <%= element.modele %></p>
+        <div class="action-buttons">
+          <a href="/produit/<%= element.id %>">
+            <button class="add-to-cart" type="submit">Voir</button>
+          </a>
+          <a href="page-lien.html">
+            <img class="image-link" src="/img/favoris.png" alt="Arrow icon" />
+          </a>
+        </div>
       </div>
-      <div class="CCsection-steps">
-        <% bestSellers.forEach(function(element, index) { %>
-          <% if (index < 5) { %> <!-- Limite à 5 éléments -->
-            <div class="CCstep">
-              <div class="CCPrix">
-                <h2><strong>39€</strong>/30 jours</h2>
-              </div>
-              <div class="CCImg">
-                <img src="/img/<%= element.image %>" alt="<%= element.modele %>">
-              </div>
-              <p><%= element.modele %></p>
-            </div>
-          <% } %>
-        <% }); %>
-      </div>
+      <% } %> <% }); %>
     </div>
   </div>
+</div>
 <%- include('footer'); -%>

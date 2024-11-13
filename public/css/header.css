@@ -15,6 +15,10 @@ body {
     background-color: white;
 }
 
+.navbar-center {
+    position: relative;
+}
+
 .logo {
     height: 53px;
     width: 200px;
@@ -54,56 +58,54 @@ body {
 
 /* Styles pour le bouton Connexion/Déconnexion */
 .btn-connexion {
-    background-color: #40512D; /* Couleur de fond */
-    color: white; /* Couleur du texte */
-    padding: 10px 15px; /* Espacement interne */
-    border: none; /* Suppression de la bordure */
-    border-radius: 5px; /* Coins arrondis */
-    text-decoration: none; /* Pas de soulignement */
-    font-weight: bold; /* Texte en gras */
-    margin-left: 10px; /* Espacement à gauche */
-    transition: background-color 0.3s; /* Effet de transition pour l'arrière-plan */
+    background-color: #40512D; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    transition: background-color 0.3s; 
 }
 
 .btn-connexion:hover {
-    background-color: #567d4b; /* Couleur de fond au survol */
+    background-color: #567d4b; 
 }
 
 /* Styles pour le bouton Création Agent */
 .btn-creation-agent {
-    background-color: #F38923; /* Couleur de fond */
-    color: white; /* Couleur du texte */
-    padding: 10px 15px; /* Espacement interne */
-    border: none; /* Suppression de la bordure */
-    border-radius: 5px; /* Coins arrondis */
-    text-decoration: none; /* Pas de soulignement */
-    font-weight: bold; /* Texte en gras */
-    margin-left: 10px; /* Espacement à gauche */
-    transition: background-color 0.3s; /* Effet de transition pour l'arrière-plan */
+    background-color: #F38923; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-left: 10px;
+    transition: background-color 0.3s; 
 }
 
 .btn-creation-agent:hover {
-    background-color: #e07b00; /* Couleur de fond au survol */
+    background-color: #e07b00;
 }
 
 /* Pour centrer le contenu */
 .navbar-right {
     display: flex;
-    gap: 20px; /* Espacement entre les icônes */
-    margin-right: 50px;
-    align-items: center; /* Alignement vertical centré */
+    gap: 20px;
+    align-items: center; 
 }
 
 /* Positionnement du bouton Connexion/Déconnexion */
 .connexion-button {
-    display: flex; /* Flex pour un alignement horizontal */
-    align-items: center; /* Alignement vertical centré */
+    display: flex; 
+    align-items: center; 
 }
 
 
 
 
-/* Grouping icon and text under it */
 .icon-group {
     display: flex;
     flex-direction: column;
@@ -130,10 +132,6 @@ body {
     font-size: 12px;
 }
 
-/* Style pour le bouton Connexion */
-/* Style pour le bouton Connexion en dehors du navbar-right */
-
-
 
 /* Menu styling */
 .menu {
@@ -151,28 +149,27 @@ body {
 }
 
 .menu ul li {
-    position: relative; /* Necessary for the arrow */
+    position: relative;
     display: inline-block;
 }
 
 .menu ul li a {
     text-decoration: none;
-    color: #40512D; /* Dark green color */
+    color: #40512D; 
     font-weight: bold;
     font-size: 16px;
-    padding-right: 20px; /* Space for the arrow */
-    padding-left: 10px;  /* Space between the edge and text */
+    padding-right: 20px; 
+    padding-left: 10px;  
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Adding the arrow after each menu item */
 .menu ul li a::after {
-    content: '\25BC'; /* Unicode for a down arrow */
+    content: '\25BC'; 
     font-size: 12px;
-    margin-left: 8px; /* Space between text and arrow */
-    color: #40512D; /* Same color as text */
+    margin-left: 8px; 
+    color: #40512D;
     display: inline-block;
     transition: transform 0.2s ease;
 }

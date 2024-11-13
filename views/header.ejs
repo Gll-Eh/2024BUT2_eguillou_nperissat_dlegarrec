@@ -1,77 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/accueil.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/catalogue.css">
-    <link rel="stylesheet" href="/css/location.css">
-    <link rel="stylesheet" href="/css/produit.css">
-    <link rel="icon" href="/img/Locfit_logo.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/accueil.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/catalogue.css" />
+    <link rel="stylesheet" href="/css/location.css" />
+    <link rel="stylesheet" href="/css/produit.css" />
+    <link rel="icon" href="/img/Locfit_logo.png" type="image/png" />
     <title>Locfit</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header class="navbar">
+      <div class="navbar-left">
+        <a href="/"
+          ><img src="/img/Locfit_logo.png" alt="Locfit Logo" class="logo"
+        /></a>
+      </div>
 
-<header class="navbar">
-    <div class="navbar-left">
-        <a href="/"><img src="/img/Locfit_logo.png" alt="Locfit Logo" class="logo"></a>
-    </div>
-
-    <div class="navbar-center">
+      <div class="navbar-center">
         <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Rechercher...">
-            <img src="/img/recherche.png" alt="Search" class="search-icon" />
+          <input type="text" class="search-bar" placeholder="Rechercher..." />
+          <img src="/img/recherche.png" alt="Search" class="search-icon" />
         </div>
-    </div>
+      </div>
 
-    <div class="navbar-right">
+      <div class="navbar-right">
         <div class="icon-group">
-            <img src="/img/magasins.png" class="icon-link">
-            <a href="/img/magasins.ejs">Magasins</a>
-        </div>
-        <div class="icon-group">
-            <img src="/img/favoris.png" class="icon-link">
-            <a href="img/favoris.ejs">Favoris</a>
+          <img src="/img/magasins.png" class="icon-link" />
+          <a href="/img/magasins.ejs">Magasins</a>
         </div>
         <div class="icon-group">
-            <img src="/img/panier.png" class="icon-link">
-            <a href="/img/panier.ejs">Panier</a>
+          <img src="/img/favoris.png" class="icon-link" />
+          <a href="img/favoris.ejs">Favoris</a>
         </div>
         <div class="icon-group">
-            <img src="/img/compte.png" class="icon-link">
-            <a href="/inscription">Compte</a>
+          <img src="/img/panier.png" class="icon-link" />
+          <a href="/img/panier.ejs">Panier</a>
         </div>
-    </div>
+        <div class="icon-group">
+          <img src="/img/compte.png" class="icon-link" />
+          <a href="/inscription">Compte</a>
+        </div>
+        <div class="connexion-button">
+          <% if (isAuth) { %>
+          <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
 
-    <div class="connexion-button">
-        <% if (isAuth) { %>
-            <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
-            
-            <% if (role === 'admin') { %>
-                <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
-            <% } %>
-            
-        <% } else { %>
-            <a href="/connexion" class="btn-connexion">Connexion</a>
-        <% } %>
-    </div>
+          <% if (role === 'admin') { %>
+          <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
+          <% } %> <% } else { %>
+          <a href="/connexion" class="btn-connexion">Connexion</a>
+          <% } %>
+        </div>
+      </div>
+    </header>
 
-</header>
-
-<nav class="menu">
-    <ul>
+    <nav class="menu">
+      <ul>
         <li><a href="/">Accueil</a></li>
         <li><a href="/catalogue">Équipements</a></li>
         <li><a href="#">Conseil</a></li>
         <li><a href="#">Vidéos</a></li>
         <li><a href="#">Aide</a></li>
         <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-</body>
+      </ul>
+    </nav>
+  </body>
 </html>

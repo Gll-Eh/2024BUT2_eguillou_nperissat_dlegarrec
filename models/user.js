@@ -37,13 +37,13 @@ async function get_catalogue () {
 }
 
 async function get_produit (id) {
-    const sql = "SELECT * FROM produit";
+    const sql = "SELECT * FROM produit WHERE id = ?";
     return new Promise((resolve, reject) => {
-        bdd.query(sql, (err, results) => {
+        bdd.query(sql, [id], (err, results) => {
             if (err) {
                 return reject(err);
             }
-            resolve(results);
+            resolve(results[0]);
         });
     });
 }

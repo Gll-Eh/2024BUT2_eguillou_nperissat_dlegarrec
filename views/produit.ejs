@@ -1,21 +1,17 @@
 <%-include('header'); -%>
 
-<body>
-    <% products.forEach(function(element) { %>
-        <% if (element.id === produit.id){%>
     <div class="produit-container">
         <!-- Product Image -->
         <div class="product-image">
-            <img src="/img/<%= element.image %>" alt="Rameur Professionnel">
+            <img src="/img/<%= produits.image %>" alt="<%= produits.description %>">
         </div>
 
         <!-- Product Info -->
         <div class="produit-info">
-            <h1>Rameur professionnel</h1>
-            <p class="price">Prix de vente : <strong>1499€</strong></p>
+            <h1><%= produits.marque %> <%= produits.modele %></h1>
+            <p class="price">Prix de Location : <strong><%= produits.prix_location %>€</strong></p>
             <p class="description">
-                Conçu pour un usage régulier à intensif. 4 fois et plus par semaine (de 15 à 60 minutes par séance).
-                <br>Le Rameur professionnel est le rameur de référence dans le milieu du sport à domicile, des clubs de sport et de fitness, mais aussi de la préparation physique des sportifs.
+                <%= produits.description %>
             </p>
             <div class="availability">
                 <p><strong>Retrait en magasin</strong></p>
@@ -27,7 +23,7 @@
             <div class="offer-selection">
                 <label for="offer-select">Sélectionner une offre:</label>
                 <select id="offer-select">
-                    <option value="26">26 € / jour</option>
+                    <option value="26"><%= produits.prix_location %> € / jour</option>
                 </select>
             </div>
 
@@ -43,9 +39,6 @@
             <span>Lancer la vidéo explicative</span>
         </a>
     </div>
-<% }}); %>
-</body>
-</html>
 
 
 <%-include('footer'); -%>

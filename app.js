@@ -1,52 +1,52 @@
-const express= require('express');
-const session = require('express-session');
-const md5 = require('md5');
+const express = require("express");
+const session = require("express-session");
+const md5 = require("md5");
 const app = express();
 const userModel = require("./models/user.js");
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
-app.use(session({
-    secret : 'mdp',
-    resave : false,
-    saveUninitialized : false
-}));
+app.use(
+    session({
+        secret: "mdp",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
 
-app.use(function (req,res, next) {
+app.use(function (req, res, next) {
     if (req.session.userId) {
         res.locals.isAuth = true;
         res.locals.id = req.session.userId;
-        res.locals.role =  req.session.role;
-    }
-    else {
+        res.locals.role = req.session.role;
+    } else {
         res.locals.isAuth = false;
         res.locals.id = null;
-        res.locals.role =  null;
+        res.locals.role = null;
     }
     next();
 });
 
-app.get('/login', async function (req, res) {
+app.get("/login", async function (req, res) {
     if (!req.session.userId) {
         return res.redirect("/connexion");
     }
 
     try {
         const user = await userModel.getUserById(req.session.userId);
-        res.render('index', {user});
+        res.render("index", { user });
         console.log(user);
     } catch (err) {
         console.log(err);
-        res.status(500).send('Erreur');
+        res.status(500).send("Erreur");
     }
 });
 
-
-app.get('/', async function (req, res) {
+app.get("/", async function (req, res) {
     try {
         const bestSellers = await userModel.get_accueil();
 
@@ -55,131 +55,114 @@ app.get('/', async function (req, res) {
             user = await userModel.getUserById(req.session.userId);
         }
 
-        res.render('index', { bestSellers, user });
+        res.render("index", { bestSellers, user });
     } catch (err) {
         console.log(err);
-        res.status(500).send('Erreur');
+        res.status(500).send("Erreur");
     }
 });
 
-
-app.get('/produit/:id', async function (req, res) {
-    const id = req.params.id;
-    try {
-        const products = await userModel.get_produit(id);
-        res.render('produit', {products});
-    } catch (err) {
-        console.log(err);
-        res.status(500).send('Erreur');
-    }
-    }
-);
-
-
-app.get('/inscription', function (req, res) {
+app.get("/inscription", function (req, res) {
     if (req.session.userId) {
-        return res.redirect('/modif'); 
+        return res.redirect("/modif");
     }
-    res.render('inscription'); 
+    res.render("inscription");
 });
 
-
-app.get('/catalogue', async function (req, res) {
-
+app.get("/catalogue", async function (req, res) {
     try {
         const products = await userModel.get_catalogue();
-        res.render('catalogue', {products});
+        res.render("catalogue", { products });
     } catch (err) {
         console.log(err);
-        res.status(500).send('Erreur');
+        res.status(500).send("Erreur");
     }
-}
-);
+});
 
-app.get('/modif', async function (req, res) {
+app.get("/produit/:id", async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const produits = await userModel.get_produit(productId);
+        res.render("produit", { produits });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Erreur");
+    }
+});
+
+app.get("/modif", async function (req, res) {
     if (!req.session.userId) {
-        return res.redirect('/connexion');
+        return res.redirect("/connexion");
     }
 
     try {
         const user = await userModel.getUserById(req.session.userId);
-        const favoris = []; 
-        res.render('modif', { user, favoris });
+        const favoris = [];
+        res.render("modif", { user, favoris });
     } catch (err) {
         console.log(err);
-        res.status(500).send("Erreur lors de la récupération des informations utilisateur");
+        res
+            .status(500)
+            .send("Erreur lors de la récupération des informations utilisateur");
     }
 });
 
-
-app.post('/modif-compte', async function(req, res) {
+app.post("/modif-compte", async function (req, res) {
     const { nom, prenom, ddn, email, login } = req.body;
     const userId = req.session.userId;
 
     try {
         await userModel.updateUser(userId, nom, prenom, ddn, email, login);
-        res.redirect('/modif');
+        res.redirect("/modif");
     } catch (err) {
         console.error(err);
-        res.status(500).send('Erreur lors de la mise à jour des informations');
+        res.status(500).send("Erreur lors de la mise à jour des informations");
     }
 });
 
+app.get("/location", function (req, res) {
+    res.render("location");
+});
 
+app.get("/connexion", function (req, res) {
+    res.render("login", { error: null });
+});
 
-
-app.get('/location', function (req, res) {
-    res.render('location');
-}
-);
-
-app.get('/connexion', function (req, res) {
-    res.render('login', {error:null});
-}
-);
-
-app.get('/deconnexion', function (req, res) {
+app.get("/deconnexion", function (req, res) {
     req.session.destroy(function (err) {
         if (err) {
             return res.status(500).send("Erreur lors de la déconnexion");
         }
-        res.redirect('/');
+        res.redirect("/");
     });
 });
 
-app.post('/connexion', async function(req, res){
+app.post("/connexion", async function (req, res) {
     const login = req.body.login;
     let mdp = req.body.password;
 
     mdp = md5(mdp);
 
-    const user = await userModel.checkLogin(login);   
-    
-    if (user != false && user.password == mdp){
+    const user = await userModel.checkLogin(login);
+
+    if (user != false && user.password == mdp) {
         req.session.userId = user.id;
         req.session.role = user.type_utilisateur;
         return res.redirect("/");
+    } else {
+        res.render("login", { error: "Mauvais Login/Mot de passe" });
     }
-    else{
-        res.render("login", {error: "Mauvais Login/Mot de passe"});
-    }
-
 });
 
-
-
-
-
-app.get('/creationagent', function(req, res) {
-    if (!req.session.userId || req.session.role !== 'admin') {
-        return res.status(403).send('Accès interdit'); // Accès interdit pour les utilisateurs non-admin
+app.get("/creationagent", function (req, res) {
+    if (!req.session.userId || req.session.role !== "admin") {
+        return res.status(403).send("Accès interdit"); // Accès interdit pour les utilisateurs non-admin
     }
-    res.render('creationagent');
+    res.render("creationagent");
 });
-
 
 // Route pour traiter le formulaire de création d'agent
-app.post('/creationagent', async function(req, res) {
+app.post("/creationagent", async function (req, res) {
     const { nom, prenom, login, password, ddn, email } = req.body;
 
     // Hasher le mot de passe
@@ -188,14 +171,14 @@ app.post('/creationagent', async function(req, res) {
     try {
         // Insérer le nouvel agent dans la base de données
         await userModel.createAgent(nom, prenom, login, hashedPassword, ddn, email);
-        res.redirect('/'); // Rediriger vers la page d'accueil après la création
+        res.redirect("/"); // Rediriger vers la page d'accueil après la création
     } catch (err) {
         console.error(err);
-        res.status(500).send('Erreur lors de la création de l\'agent');
+        res.status(500).send("Erreur lors de la création de l'agent");
     }
 });
 
-app.post('/inscription', async function(req, res) {
+app.post("/inscription", async function (req, res) {
     const { nom, prenom, login, password, ddn, email } = req.body;
 
     // Hasher le mot de passe
@@ -203,31 +186,36 @@ app.post('/inscription', async function(req, res) {
 
     try {
         // Insérer le nouvel agent dans la base de données
-        await userModel.createClient(nom, prenom, login, hashedPassword, ddn, email);
-        res.redirect('/'); // Rediriger vers la page d'accueil après la création
+        await userModel.createClient(
+            nom,
+            prenom,
+            login,
+            hashedPassword,
+            ddn,
+            email
+        );
+        res.redirect("/"); // Rediriger vers la page d'accueil après la création
     } catch (err) {
         console.error(err);
-        res.status(500).send('Erreur lors de la création de l\'agent');
+        res.status(500).send("Erreur lors de la création de l'agent");
     }
 });
 
-app.get('/produit', async (req, res) => {
-
+app.get("/produit/:id", async (req, res) => {
     try {
-        const produits = await userModel.get_produit();
-        res.render('produit', {produits});
+        const productId = req.params.id;
+        const produits = await userModel.get_produit(productId);
+        res.render("produit", { produits });
     } catch (err) {
         console.log(err);
-        res.status(500).send('Erreur');
+        res.status(500).send("Erreur");
     }
 });
 
-
-
-app.use( function (req, res) {
+app.use(function (req, res) {
     res.status(404).render("404");
-})
+});
 
 app.listen(3000, function () {
-    console.log('Server running on port 3000');
+    console.log("Server running on port 3000");
 });

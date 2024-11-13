@@ -1,38 +1,36 @@
 <%-include('header'); -%>
 
 <div class="filtreContainer">
-<h1>Rameurs :</h1>
-        <h3>filtres</h3>
-        <div class="filters">
-            <button class="filter-btn">Marque</button>
-            <button class="filter-btn">Prix</button>
-            <button class="filter-btn">Resistance</button>
-        </div>
+  <h1>Rameurs :</h1>
+  <h3>filtres</h3>
+  <div class="filters">
+    <button class="filter-btn">Marque</button>
+    <button class="filter-btn">Prix</button>
+    <button class="filter-btn">Resistance</button>
+  </div>
 </div>
-    <div class="container_catalogue">
-        <div class="product-list_catalogue">
-            <% products.forEach(function(element) { %>
-                <div class="product_catalogue">
-                    <img class="imgProduct" src="/img/<%= element.image %>" alt="<%= element.type %>">
-                    <h2>
-                        <%= element.type %>
-                            <%= element.modele %>
-                    </h2>
-                    <p>39€/30 jours</p>
-                    <form action="/produit" method="get" class="action-buttons">
-                        <input type="hidden" name="productId" value="<%= element.id %>">
-                        <button class="add-to-cart" type="submit">Voir</button>
-                        <!-- <a href="/produit" class="add-to-cart">Voir</a>-->
-                        <a href="page-lien.html">
-                            <img class="image-link" src="/img/favoris.png" alt="Arrow icon">
-                        </a>
-                    </form>
-                </div>
-                <% }); %>
-        </div>
+<div class="container_catalogue">
+  <div class="product-list_catalogue">
+    <% products.forEach(function(element) { %>
+    <div class="product_catalogue">
+      <img
+        class="imgProduct"
+        src="/img/<%= element.image %>"
+        alt="<%= element.type %>"
+      />
+      <h2><%= element.marque %> <%= element.modele %></h2>
+      <p><%= element.prix_location %>€ /jour</p>
+      <div class="action-buttons">
+        <a href="/produit/<%= element.id %>">
+          <button class="add-to-cart" type="submit">Voir</button>
+        </a>
+        <a href="page-lien.html">
+          <img class="image-link" src="/img/favoris.png" alt="Arrow icon" />
+        </a>
+      </div>
     </div>
+    <% }); %>
+  </div>
+</div>
 
-
-
-
-    <%- include('footer'); -%>
+<%- include('footer'); -%>
