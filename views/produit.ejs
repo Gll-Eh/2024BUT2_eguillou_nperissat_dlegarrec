@@ -2,6 +2,7 @@
 
 <body>
     <% products.forEach(function(element) { %>
+        <% if (element.id === produit.id){%>
     <div class="produit-container">
         <!-- Product Image -->
         <div class="product-image">
@@ -42,7 +43,7 @@
             <span>Lancer la vidéo explicative</span>
         </a>
     </div>
-<% }); %>
+<% }}); %>
 </body>
 </html>
 
