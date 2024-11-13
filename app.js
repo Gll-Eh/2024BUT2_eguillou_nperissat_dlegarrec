@@ -75,10 +75,6 @@ app.get('/produit/:id', async function (req, res) {
     }
 );
 
-app.get('/modif', function (req, res) {
-    res.render('modif');
-}
-);
 
 app.get('/inscription', function (req, res) {
     if (req.session.userId) {
@@ -99,6 +95,38 @@ app.get('/catalogue', async function (req, res) {
     }
 }
 );
+
+app.get('/modif', async function (req, res) {
+    if (!req.session.userId) {
+        return res.redirect('/connexion');
+    }
+
+    try {
+        const user = await userModel.getUserById(req.session.userId);
+        const favoris = []; 
+        res.render('modif', { user, favoris });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Erreur lors de la récupération des informations utilisateur");
+    }
+});
+
+
+app.post('/modif-compte', async function(req, res) {
+    const { nom, prenom, ddn, email, login } = req.body;
+    const userId = req.session.userId;
+
+    try {
+        await userModel.updateUser(userId, nom, prenom, ddn, email, login);
+        res.redirect('/modif');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erreur lors de la mise à jour des informations');
+    }
+});
+
+
+
 
 app.get('/location', function (req, res) {
     res.render('location');

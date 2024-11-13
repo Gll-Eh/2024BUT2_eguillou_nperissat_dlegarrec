@@ -1,18 +1,44 @@
+<%- include('header'); -%>
+
 <main>
     <link rel="stylesheet" href="/css/modif.css">
     
-    <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1> <!-- Phrase de bienvenue -->
+    <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1>
 
     <div class="user-info">
-        <h2>Récapitulatif de vos informations :</h2>
-        <ul>
+        <h2>Vos informations :</h2>
+
+        <ul id="info-list">
             <li><strong>Nom :</strong> <%= user.nom %></li>
             <li><strong>Prénom :</strong> <%= user.prenom %></li>
-            <li><strong>Date de naissance :</strong> <%= user.ddn %></li>
             <li><strong>Adresse e-mail :</strong> <%= user.email %></li>
             <li><strong>Login :</strong> <%= user.login %></li>
             <li><strong>Type d'utilisateur :</strong> <%= user.type_utilisateur %></li>
         </ul>
+
+        <div class="modif-buttons">
+            <button class="btn-modif" onclick="toggleForm()">Modifier</button>
+        </div>
+    </div>
+
+    <div id="modif-form" style="display: none;">
+        <h2>Modifier vos informations :</h2>
+        <form action="/modif-compte" method="post">
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" value="<%= user.nom %>" required>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" name="prenom" value="<%= user.prenom %>" required>
+
+            <label for="email">Adresse e-mail :</label>
+            <input type="email" name="email" value="<%= user.email %>" required>
+
+            <label for="login">Login :</label>
+            <input type="text" name="login" value="<%= user.login %>" required>
+
+            <button type="submit">Sauvegarder</button>
+            <button type="button" onclick="toggleForm()">Annuler</button>
+        </form>
     </div>
 
     <div class="favoris">
@@ -21,7 +47,7 @@
             <% if (favoris.length > 0) { %>
                 <% favoris.forEach(function(produit) { %>
                     <div class="produit">
-                        <img src="<%= produit.image_url %>" alt="<%= produit.nom %>" class="produit-image"> <!-- Assurez-vous d'avoir l'URL de l'image -->
+                        <img src="<%= produit.image_url %>" alt="<%= produit.nom %>" class="produit-image">
                         <h3><%= produit.nom %></h3>
                         <p>Prix : <%= produit.prix %> €</p>
                         <button onclick="window.location.href='/produit/<%= produit.id %>';">Voir le produit</button>
@@ -32,9 +58,19 @@
             <% } %>
         </div>
     </div>
-
-    <div class="actions">
-        <button onclick="window.location.href='/';">Retour à l'accueil</button>
-        <button onclick="window.location.href='/logout';">Déconnexion</button>
-    </div>
 </main>
+
+<script>
+    function toggleForm() {
+        const infoList = document.getElementById("info-list");
+        const modifForm = document.getElementById("modif-form");
+        
+        if (infoList.style.display === "none") {
+            infoList.style.display = "block";
+            modifForm.style.display = "none";
+        } else {
+            infoList.style.display = "none";
+            modifForm.style.display = "block";
+        }
+    }
+</script>

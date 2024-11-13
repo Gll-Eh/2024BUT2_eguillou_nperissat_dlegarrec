@@ -37,7 +37,7 @@ async function get_catalogue () {
 }
 
 async function get_produit (id) {
-    const sql = "SELECT * FROM produit WHERE id = 1";
+    const sql = "SELECT * FROM produit";
     return new Promise((resolve, reject) => {
         bdd.query(sql, (err, results) => {
             if (err) {
@@ -87,3 +87,17 @@ async function createClient(nom, prenom, login, password, ddn, email) {
 
 
 module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, get_produit};
+async function updateUser(id, nom, prenom, ddn, email, login) {
+    const sql = "UPDATE utilisateur SET nom = ?, prenom = ?, ddn = ?, email = ?, login = ? WHERE id = ?";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, [nom, prenom, ddn, email, login, id], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit };
+
