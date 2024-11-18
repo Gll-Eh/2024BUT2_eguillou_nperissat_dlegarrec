@@ -1,12 +1,7 @@
-/* General styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffff;
 }
 
-/* Navbar styling */
 .navbar {
     display: flex;
     justify-content: space-between;
