@@ -36,6 +36,10 @@ async function get_catalogue () {
     });
 }
 
+function addToFav() {
+    
+}
+
 async function get_produit (id) {
     const sql = "SELECT * FROM produit WHERE id = ?";
     return new Promise((resolve, reject) => {

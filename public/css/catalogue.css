@@ -91,13 +91,16 @@ p {
     align-items: flex-end;
 }
 
-.image-link {
+.favButton {
     height: 30px; 
-    margin-top: 15px;
-    cursor: pointer;
+    color: #4C7B42;
 }
 
-.image-link:hover {
+.favButton:hover {
     opacity: 0.8;
 }
 
+.addToFav {
+    border-style: none;
+    background: none;
+}
