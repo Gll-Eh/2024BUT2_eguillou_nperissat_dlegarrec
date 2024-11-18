@@ -201,17 +201,6 @@ app.post("/inscription", async function (req, res) {
     }
 });
 
-app.get("/produit/:id", async (req, res) => {
-    try {
-        const productId = req.params.id;
-        const produits = await userModel.get_produit(productId);
-        res.render("produit", { produits });
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Erreur");
-    }
-});
-
 app.use(function (req, res) {
     res.status(404).render("404");
 });
