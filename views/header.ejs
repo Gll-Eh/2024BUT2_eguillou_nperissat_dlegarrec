@@ -31,14 +31,6 @@
 
       <div class="navbar-right">
         <div class="icon-group">
-          <a href="/img/magasins.ejs"><img src="/img/magasins.png" class="icon-link" /></a>
-          <a href="/img/magasins.ejs">Magasins</a>
-        </div>
-        <div class="icon-group">
-          <a href="/img/favoris.ejs"><img src="/img/favoris.png" class="icon-link" /></a>
-          <a href="/img/favoris.ejs">Favoris</a>
-        </div>
-        <div class="icon-group">
           <a href="/img/panier.ejs"><img src="/img/panier.png" class="icon-link" /></a>
           <a href="/img/panier.ejs">Panier</a>
         </div>
@@ -46,16 +38,16 @@
           <a href="/inscription"><img src="/img/compte.png" class="icon-link" /></a>
           <a href="/inscription">Compte</a>
         </div>
-        <div class="connexion-button">
-          <% if (isAuth) { %>
-          <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
+      </div>
+      <div class="connexion-button">
+        <% if (isAuth) { %>
+        <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
 
-          <% if (role === 'admin') { %>
-          <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
-          <% } %> <% } else { %>
-          <a href="/connexion" class="btn-connexion">Connexion</a>
-          <% } %>
-        </div>
+        <% if (role === 'admin') { %>
+        <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
+        <% } %> <% } else { %>
+        <a href="/connexion" class="btn-connexion">Connexion</a>
+        <% } %>
       </div>
     </header>
 
@@ -63,9 +55,6 @@
       <ul>
         <li><a href="/">Accueil</a></li>
         <li><a href="/catalogue">Équipements</a></li>
-        <li><a href="#">Conseil</a></li>
-        <li><a href="#">Vidéos</a></li>
-        <li><a href="#">Aide</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>

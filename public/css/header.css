@@ -4,10 +4,11 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     background-color: white;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5%;
 }
 
 .navbar-center {
@@ -53,15 +54,15 @@ body {
 
 /* Styles pour le bouton Connexion/Déconnexion */
 .btn-connexion {
-    background-color: #40512D; 
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    margin-left: 10px; 
-    transition: background-color 0.3s; 
+    background-color: #40512D;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: white;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .btn-connexion:hover {
@@ -115,14 +116,10 @@ body {
 }
 
 .navbar-right a {
-    color: #40512D;
     text-decoration: none;
     font-weight: bold;
     margin-top: 5px;
     text-align: center;
-}
-
-.navbar-right a {
     color: black;
     font-size: 12px;
 }
