@@ -120,8 +120,26 @@ app.post("/modif-compte", async function (req, res) {
     }
 });
 
-app.get("/location", function (req, res) {
-    res.render("location");
+app.get("/location", async function (req, res) {
+    try {
+        if (res.locals.isAuth) {
+            if (res.locals.role === "agent"){
+                const WaitList = await userModel.locWait();
+                const ProgressList = await userModel.locProgress();
+                const FinishList = await userModel.locFinish();
+                res.render("location", { WaitList, ProgressList, FinishList });
+     
+             }
+         }
+         res.render("index");
+
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erreur lors de la mise à jour des informations");
+    }
+
+
 });
 
 app.get("/connexion", function (req, res) {
@@ -198,6 +216,23 @@ app.post("/inscription", async function (req, res) {
     } catch (err) {
         console.error(err);
         res.status(500).send("Erreur lors de la création de l'agent");
+    }
+});
+
+app.get("/addpanier", async function (req, res) {
+    if (!req.session.userId) {
+        return res.redirect("/connexion");
+    }
+
+    try {
+        const user = await userModel.addPanier();
+        
+        res.render("modif", { user, favoris });
+    } catch (err) {
+        console.log(err);
+        res
+            .status(500)
+            .send("Erreur lors de la récupération des informations utilisateur");
     }
 });
 

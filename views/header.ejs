@@ -48,6 +48,10 @@
         <% } %> <% } else { %>
         <a href="/connexion" class="btn-connexion">Connexion</a>
         <% } %>
+        <% if (role === 'agent') { %>
+          
+          <a href="/location" class="btn-creation-agent">Location</a>
+          <% } %>
       </div>
     </header>
 

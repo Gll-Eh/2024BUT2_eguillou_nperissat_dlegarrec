@@ -1,15 +1,23 @@
-<%-include('header'); -%>
+<%- include('header'); -%>
+
+<h1>
+    Locations en attente
+</h1>
+<p>
+    <% WaitList.forEach(element => { %>
+       <%= element.location_etat %> 
+    <% }) %>
+</p>
 
 
-
-    <div class="container_location">
+    <!-- <div class="container_location"> -->
         <!-- Breadcrumb -->
-        <div class="breadcrumb">
+        <!-- <div class="breadcrumb">
             Lorem &gt; Ipsum dolor
-        </div>
+        </div> -->
 
         <!-- Equipment List -->
-        <div class="equipment-list">
+        <!-- <div class="equipment-list">
             <div class="equipment-item">
                 <div class="item-img">
                     <img src="placeholder.jpg" alt="Item Image">
@@ -70,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

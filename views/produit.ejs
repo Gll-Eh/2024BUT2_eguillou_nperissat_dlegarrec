@@ -9,13 +9,13 @@
         <!-- Product Info -->
         <div class="produit-info">
             <h1><%= produits.marque %> <%= produits.modele %></h1>
-            <p class="price">Prix de Location : <strong><%= produits.prix_location %>€</strong></p>
+            <p class="price">Prix du produit : <strong><%= produits.prix_location %>€</strong></p>
             <p class="description">
                 <%= produits.description %>
             </p>
             <div class="availability">
                 <p><strong>Retrait en magasin</strong></p>
-                <p>Lannion</p>
+                <p><%= produits.magasin %></p>
                 <p><span class="available">&#x2705;</span> Ce produit est disponible en magasin !</p>
             </div>
 
