@@ -21,3 +21,46 @@
       </div>
     </div>
     <% }); %>
+
+      <div class="navbar-center">
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Rechercher..." />
+          <img src="/img/recherche.png" alt="Search" class="search-icon" />
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <div class="icon-group">
+          <a href="/img/panier.ejs"><img src="/img/panier.png" class="icon-link" /></a>
+          <a href="/img/panier.ejs">Panier</a>
+        </div>
+        <div class="icon-group">
+          <a href="/inscription"><img src="/img/compte.png" class="icon-link" /></a>
+          <a href="/inscription">Compte</a>
+        </div>
+      </div>
+      <div class="connexion-button">
+        <% if (isAuth) { %>
+        <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
+
+        <% if (role === 'admin') { %>
+        <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
+        <% } %> <% } else { %>
+        <a href="/connexion" class="btn-connexion">Connexion</a>
+        <% } %>
+        <% if (role === 'agent') { %>
+          
+          <a href="/location" class="btn-creation-agent">Location</a>
+          <% } %>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/catalogue">Équipements</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
