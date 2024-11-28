@@ -1,12 +1,15 @@
 <%- include('header'); -%>
 
+
 <main>
     <link rel="stylesheet" href="/css/modif.css">
-    
+   
     <h1>Bonjour, <%= user.prenom %> <%= user.nom %>!</h1>
+
 
     <div class="user-info">
         <h2>Vos informations :</h2>
+
 
         <ul id="info-list">
             <li><strong>Nom :</strong> <%= user.nom %></li>
@@ -16,10 +19,12 @@
             <li><strong>Type d'utilisateur :</strong> <%= user.type_utilisateur %></li>
         </ul>
 
+
         <div class="modif-buttons">
             <button class="btn-modif" onclick="toggleForm()">Modifier</button>
         </div>
     </div>
+
 
     <div id="modif-form" style="display: none;">
         <h2>Modifier vos informations :</h2>
@@ -27,19 +32,24 @@
             <label for="nom">Nom :</label>
             <input type="text" name="nom" value="<%= user.nom %>" required>
 
+
             <label for="prenom">Prénom :</label>
             <input type="text" name="prenom" value="<%= user.prenom %>" required>
+
 
             <label for="email">Adresse e-mail :</label>
             <input type="email" name="email" value="<%= user.email %>" required>
 
+
             <label for="login">Login :</label>
             <input type="text" name="login" value="<%= user.login %>" required>
+
 
             <button type="submit">Sauvegarder</button>
             <button type="button" onclick="toggleForm()">Annuler</button>
         </form>
     </div>
+
 
     <div class="favoris">
         <h2>Mes Produits Favoris</h2>
@@ -60,11 +70,12 @@
     </div>
 </main>
 
+
 <script>
     function toggleForm() {
         const infoList = document.getElementById("info-list");
         const modifForm = document.getElementById("modif-form");
-        
+       
         if (infoList.style.display === "none") {
             infoList.style.display = "block";
             modifForm.style.display = "none";

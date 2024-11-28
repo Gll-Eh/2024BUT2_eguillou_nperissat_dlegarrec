@@ -1,13 +1,8 @@
 <%-include('header'); -%>
 
+
 <div class="filtreContainer">
-  <h1>Rameurs :</h1>
-  <h3>filtres</h3>
-  <div class="filters">
-    <button class="filter-btn">Marque</button>
-    <button class="filter-btn">Prix</button>
-    <button class="filter-btn">Resistance</button>
-  </div>
+  <h1>Nos Équipements</h1>
 </div>
 <div class="container_catalogue">
   <div class="product-list_catalogue">
@@ -24,11 +19,11 @@
         <a href="/produit/<%= element.id %>">
           <button class="add-to-cart" type="submit">Voir</button>
         </a>
-          <button class="addToFav" type="button"><img class="favButton" src="/img/favoris.png" alt="ajouter aux favoris" /></button>
       </div>
     </div>
     <% }); %>
   </div>
 </div>
+
 
 <%- include('footer'); -%>

@@ -2,10 +2,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     background-color: white;
     justify-content: flex-end;
@@ -13,9 +12,11 @@ body {
     gap: 5%;
 }
 
+
 .navbar-center {
     position: relative;
 }
+
 
 .logo {
     height: 53px;
@@ -23,10 +24,12 @@ body {
     margin-left: 15px;
 }
 
+
 /* Search Bar Styling */
 .search-container {
     position: relative;
 }
+
 
 .search-bar {
     width: 700px;
@@ -37,6 +40,7 @@ body {
     background-color: #f0f0f0; /* Light grey background */
 }
 
+
 .search-icon {
     position: absolute;
     left: 10px;
@@ -44,6 +48,7 @@ body {
     transform: translateY(-50%);
     height: 20px;
 }
+
 
 .search-btn {
     background-color: #fff;
@@ -54,17 +59,11 @@ body {
 
 
 
+
+
+
 /* Styles pour le bouton Connexion/Déconnexion */
 .btn-connexion {
-    background-color: #40512D; 
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    margin-left: 10px; 
-    transition: background-color 0.3s; 
     background-color: #40512D;
     padding: 10px 15px;
     border: none;
@@ -76,39 +75,48 @@ body {
     font-weight: bold;
 }
 
+
 .btn-connexion:hover {
-    background-color: #567d4b; 
+    background-color: #567d4b;
 }
+
 
 /* Styles pour le bouton Création Agent */
 .btn-creation-agent {
-    background-color: #F38923; 
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-weight: bold; 
+    background-color: #F38923;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
     margin-left: 10px;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
 }
+
 
 .btn-creation-agent:hover {
     background-color: #e07b00;
 }
 
+
 /* Pour centrer le contenu */
 .navbar-right {
     display: flex;
     gap: 20px;
-    align-items: center; 
+    align-items: center;
 }
+
 
 /* Positionnement du bouton Connexion/Déconnexion */
 .connexion-button {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
 }
+
+
+
+
 
 
 
@@ -121,23 +129,23 @@ body {
     margin-left: 10px;
 }
 
+
 .icon-link {
     width: 33px;
     height: 30px;
 }
 
+
 .navbar-right a {
-    color: #40512D;
     text-decoration: none;
     font-weight: bold;
     margin-top: 5px;
     text-align: center;
-}
-
-.navbar-right a {
     color: black;
     font-size: 12px;
 }
+
+
 
 
 /* Menu styling */
@@ -147,6 +155,7 @@ body {
     padding: 10px;
 }
 
+
 .menu ul {
     list-style: none;
     padding: 0;
@@ -155,27 +164,30 @@ body {
     gap: 40px;
 }
 
+
 .menu ul li {
     position: relative;
     display: inline-block;
 }
 
+
 .menu ul li a {
     text-decoration: none;
-    color: #40512D; 
+    color: #40512D;
     font-weight: bold;
     font-size: 16px;
-    padding-right: 20px; 
+    padding-right: 20px;
     padding-left: 10px;  
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 .menu ul li a::after {
-    content: '\25BC'; 
+    content: '\25BC';
     font-size: 12px;
-    margin-left: 8px; 
+    margin-left: 8px;
     color: #40512D;
     display: inline-block;
     transition: transform 0.2s ease;

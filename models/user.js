@@ -1,5 +1,6 @@
 const bdd = require("./database.js");
 
+
 async function getUserById(id) {
     const sql = "SELECT * FROM utilisateur WHERE id = ?";
     return new Promise((resolve, reject) => {
@@ -11,6 +12,7 @@ async function getUserById(id) {
         });
     });
 }
+
 
 async function checkLogin(login) {
     const sql = "SELECT * FROM utilisateur WHERE login = ?";
@@ -24,6 +26,7 @@ async function checkLogin(login) {
     });
 }
 
+
 async function get_catalogue() {
     const sql = "SELECT * FROM produit";
     return new Promise((resolve, reject) => {
@@ -36,9 +39,12 @@ async function get_catalogue() {
     });
 }
 
+
 function addToFav() {
 
+
 }
+
 
 async function get_produit(id) {
     const sql = "SELECT * FROM produit WHERE id = ?";
@@ -51,6 +57,7 @@ async function get_produit(id) {
         });
     });
 }
+
 
 async function get_accueil() {
     const sql = "SELECT * FROM produit";
@@ -65,6 +72,8 @@ async function get_accueil() {
 }
 
 
+
+
 async function createAgent(nom, prenom, login, password, ddn, email) {
     const sql = "INSERT INTO utilisateur (nom, prenom, login, password, ddn, email, type_utilisateur) VALUES (?, ?, ?, ?, ?, ?, 'agent')";
     return new Promise((resolve, reject) => {
@@ -76,6 +85,7 @@ async function createAgent(nom, prenom, login, password, ddn, email) {
         });
     });
 }
+
 
 async function createClient(nom, prenom, login, password, ddn, email) {
     const sql = "INSERT INTO utilisateur (nom, prenom, login, password, ddn, email, type_utilisateur) VALUES (?, ?, ?, ?, ?, ?, 'client')";
@@ -89,22 +99,12 @@ async function createClient(nom, prenom, login, password, ddn, email) {
     });
 }
 
-async function addPanier(date1, date2, idUser, idProduit) {
-    const sql = "INSERT INTO location (date_debut, date_retour_prévue, prix_total, utilisateur_id, produit_id) VALUES (?, ?, ?, ?)";
-    values = [date1, date2, idUser, idProduit];
-    return new Promise((resolve, reject) => {
-        bdd.query(sql, values, (err, results) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(results);
-        });
-    });
-}
+
+
 
 async function locWait() {
     const sql = `
-    SELECT * FROM location WHERE location_etat = "en attente de confirmation"; 
+    SELECT * FROM location WHERE location_etat = "en attente de confirmation";
     `;
     return new Promise((resolve, reject) => {
         bdd.query(sql, (err, results) => {
@@ -115,10 +115,11 @@ async function locWait() {
         });
     });
 }
+
 
 async function locProgress() {
     const sql = `
-    SELECT * FROM location WHERE location_etat = "en cours de location"; 
+    SELECT * FROM location WHERE location_etat = "en cours de location";
     `;
     return new Promise((resolve, reject) => {
         bdd.query(sql, (err, results) => {
@@ -130,9 +131,10 @@ async function locProgress() {
     });
 }
 
+
 async function locFinish() {
     const sql = `
-    SELECT * FROM location WHERE location_etat = "location terminée"; 
+    SELECT * FROM location WHERE location_etat = "location terminée";
     `;
     return new Promise((resolve, reject) => {
         bdd.query(sql, (err, results) => {
@@ -143,6 +145,7 @@ async function locFinish() {
         });
     });
 }
+
 
 module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, get_produit };
 async function updateUser(id, nom, prenom, ddn, email, login) {
@@ -157,5 +160,5 @@ async function updateUser(id, nom, prenom, ddn, email, login) {
     });
 }
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, addPanier, locWait, locProgress, locFinish };
 
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, locWait, locProgress, locFinish };

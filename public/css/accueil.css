@@ -1,12 +1,9 @@
-
-
-/* -----------------------accueil-----------------------*/
-
 .user-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 
 .btn-logout {
     background-color: #ff4b5c;
@@ -16,9 +13,12 @@
     text-decoration: none;
 }
 
+
 .btn-logout:hover {
     background-color: #ff6f74;
 }
+
+
 
 
 .container1 {
@@ -27,11 +27,11 @@
     align-items: center;
     justify-content: center;
   }
-  
+ 
   .imgPres {
-  
+ 
     width: 1010px;
-  
+ 
   }
   .container-step {
     height: 330px;
@@ -43,12 +43,14 @@
     width: 1260px;
 }
 
+
 .section-steps {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
     width: 1230px;
 }
+
 
 .step {
     width: 270px;
@@ -61,17 +63,21 @@
     justify-content: space-around;
 }
 
+
 .step h3 {
     font-size: 1em;
     margin-left: 20px;
     width: 220px;
 }
 
+
 .step p {
     margin-right: 20px;
     margin-left: 20px;
     color: white;
 }
+
+
 
 
 .btn {
@@ -84,20 +90,24 @@
     margin-bottom: 40px;
 }
 
+
 .btn:hover {
     background-color: #45a049;
 }
+
 
 .product-section h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
+
 .product-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 
 .product {
     width: 22%;
@@ -108,11 +118,13 @@
     text-align: center;
 }
 
+
 .product img {
     width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
+
 
 .price {
     background-color: orange;
@@ -123,10 +135,12 @@
     margin-bottom: 10px;
 }
 
+
 .product-name {
     font-size: 1em;
     margin: 0;
 }
+
 
 .blue .price {
     background-color: #00AEEF;
@@ -181,6 +195,7 @@
 .CCImg img {
     height: 210px;
 }
+
 
 .CCstep p {
     font-size: 16px;
