@@ -120,8 +120,26 @@ app.post("/modif-compte", async function (req, res) {
     }
 });
 
-app.get("/location", function (req, res) {
-    res.render("location");
+app.get("/location", async function (req, res) {
+    try {
+        if (res.locals.isAuth) {
+            if (res.locals.role === "agent"){
+                const WaitList = await userModel.locWait();
+                const ProgressList = await userModel.locProgress();
+                const FinishList = await userModel.locFinish();
+                res.render("location", { WaitList, ProgressList, FinishList });
+     
+             }
+         }
+         res.render("index");
+
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erreur lors de la mise à jour des informations");
+    }
+
+
 });
 
 app.get("/connexion", function (req, res) {
@@ -200,6 +218,60 @@ app.post("/inscription", async function (req, res) {
         res.status(500).send("Erreur lors de la création de l'agent");
     }
 });
+
+
+
+
+// Middleware pour initialiser le panier dans la session
+app.use(function (req, res, next) {
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+    res.locals.cart = req.session.cart; // Rendre le panier accessible dans toutes les vues
+    next();
+});
+
+// Route pour ajouter un produit au panier
+app.post("/add-to-cart", async function (req, res) {
+    const { productId } = req.body;
+
+    try {
+        const product = await userModel.get_produit(productId); // Récupération des infos du produit
+        if (product) {
+            const existingProduct = req.session.cart.find((item) => item.id === product.id);
+            if (existingProduct) {
+                existingProduct.quantity += 1; // Augmenter la quantité si déjà dans le panier
+            } else {
+                req.session.cart.push({ ...product, quantity: 1 });
+            }
+        }
+        res.redirect("/cart"); // Rediriger vers la page panier
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erreur lors de l'ajout au panier");
+    }
+});
+
+// Route pour afficher le panier
+app.get("/cart", function (req, res) {
+    res.render("cart", { cart: req.session.cart });
+});
+
+// Route pour retirer un produit du panier
+app.post("/remove-from-cart", function (req, res) {
+    const { productId } = req.body;
+    req.session.cart = req.session.cart.filter((item) => item.id !== parseInt(productId, 10));
+    res.redirect("/cart");
+});
+
+
+
+app.get("/cart", function (req, res) {
+    res.render("cart", { cart: req.session.cart || [] });
+});
+
+
+
 
 app.use(function (req, res) {
     res.status(404).render("404");

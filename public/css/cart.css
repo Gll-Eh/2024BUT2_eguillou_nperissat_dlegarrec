@@ -1,0 +1,124 @@
+/* ----------------------- Panier -----------------------*/
+
+.cart-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #2b5d33;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Grille des produits du panier */
+.cart-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    gap: 20px;
+}
+
+/* Chaque produit dans la grille */
+.cart-item {
+    width: 22%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.cart-item h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cart-item .price {
+    background-color: #F38923;
+    color: white;
+    font-size: 1.1em;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.cart-item p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Quantité et bouton de suppression */
+.cart-item .quantity {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.cart-item button {
+    background-color: #F38923;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #e07b00;
+}
+
+/* Affichage total du panier */
+.total-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2b5d33;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Message lorsque le panier est vide */
+.empty-cart {
+    text-align: center;
+    font-size: 1.2em;
+    color: #999;
+    margin-top: 30px;
+}
+
+/* Boutons */
+.cart-button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-checkout {
+    padding: 10px 20px;
+    background-color: #4C7B42;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #567d4b;
+}
