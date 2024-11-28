@@ -89,18 +89,6 @@ async function createClient(nom, prenom, login, password, ddn, email) {
     });
 }
 
-async function addPanier(date1, date2, idUser, idProduit) {
-    const sql = "INSERT INTO location (date_debut, date_retour_prévue, prix_total, utilisateur_id, produit_id) VALUES (?, ?, ?, ?)";
-    values = [date1, date2, idUser, idProduit];
-    return new Promise((resolve, reject) => {
-        bdd.query(sql, values, (err, results) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(results);
-        });
-    });
-}
 
 async function locWait() {
     const sql = `
@@ -157,5 +145,5 @@ async function updateUser(id, nom, prenom, ddn, email, login) {
     });
 }
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, addPanier, locWait, locProgress, locFinish };
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, locWait, locProgress, locFinish };
 
