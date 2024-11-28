@@ -1,62 +1,23 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/accueil.css" />
-    <link rel="stylesheet" href="/css/header.css" />
-    <link rel="stylesheet" href="/css/footer.css" />
-    <link rel="stylesheet" href="/css/catalogue.css" />
-    <link rel="stylesheet" href="/css/location.css" />
-    <link rel="stylesheet" href="/css/produit.css" />
-    <link rel="icon" href="/img/Locfit_logo.png" type="image/png" />
-    <title>Locfit</title>
-  </head>
+<%-include('header'); -%>
 
-  <body>
-    <header class="navbar">
-      <div class="navbar-left">
-        <a href="/"
-          ><img src="/img/Locfit_logo.png" alt="Locfit Logo" class="logo"
-        /></a>
+<div class="filtreContainer">
+  <h1>Nos Équipements</h1>
+  <h1>Rameurs :</h1>
+  <h3>filtres</h3>
+  <div class="filters">
+    <button class="filter-btn">Marque</button>
+    <button class="filter-btn">Prix</button>
+    <button class="filter-btn">Resistance</button>
+  </div>
+</div>
+<div class="container_catalogue">
+  <div class="product-list_catalogue">
+
+
+        <a href="/produit/<%= element.id %>">
+          <button class="add-to-cart" type="submit">Voir</button>
+        </a>
+          <button class="addToFav" type="button"><img class="favButton" src="/img/favoris.png" alt="ajouter aux favoris" /></button>
       </div>
-
-      <div class="navbar-center">
-        <div class="search-container">
-          <input type="text" class="search-bar" placeholder="Rechercher..." />
-          <img src="/img/recherche.png" alt="Search" class="search-icon" />
-        </div>
-      </div>
-
-      <div class="navbar-right">
-        <div class="icon-group">
-          <a href="/img/panier.ejs"><img src="/img/panier.png" class="icon-link" /></a>
-          <a href="/img/panier.ejs">Panier</a>
-        </div>
-        <div class="icon-group">
-          <a href="/inscription"><img src="/img/compte.png" class="icon-link" /></a>
-          <a href="/inscription">Compte</a>
-        </div>
-      </div>
-      <div class="connexion-button">
-        <% if (isAuth) { %>
-        <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
-
-        <% if (role === 'admin') { %>
-        <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
-        <% } %> <% } else { %>
-        <a href="/connexion" class="btn-connexion">Connexion</a>
-        <% } %>
-      </div>
-    </header>
-
-    <nav class="menu">
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/catalogue">Équipements</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </body>
-</html>
+    </div>
+    <% }); %>
