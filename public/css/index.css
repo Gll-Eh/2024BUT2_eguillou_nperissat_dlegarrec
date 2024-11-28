@@ -25,6 +25,10 @@ body {
 }
 
 
+.sectionTitle {
+    margin: 120px;
+}
+
 /* Search Bar Styling */
 .search-container {
     position: relative;

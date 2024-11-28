@@ -1,89 +1,84 @@
 <%- include('header'); -%>
 
 
-<!--
 
-
-<% if (user) { %>
-    <div class="user-info">
-        <h1>Bonjour <%= user.prenom %>, vous êtes <%= user.type_utilisateur %></h1>
-        <a href="/deconnexion" class="btn-logout">Déconnexion</a>
+  <article id="Accueil" class="container1">
+    <div class="content">
+      <img src="/img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />
     </div>
-<% } %>
-
-
-  -->
-
-
-<article id="Accueil" class="container1">
-  <div class="content">
-    <img src="/img/img_Accueil.jpg" class="imgPres" alt="Image-Presentation" />
-  </div>
-</article>
-<div class="container-step">
-  <div class="cadresection">
-    <div class="sectionTitle">
-      <h1>Comment louer mon équipement sportif ?</h1>
-    </div>
-    <div class="section-steps">
-      <div class="step">
-        <h3>1. CHOISIR MON PRODUIT</h3>
-        <p>Je choisis le matériel avec les services associés sur locfit.fr</p>
+  </article>
+  <div class="container-step">
+    <div class="cadresection">
+      <div class="sectionTitle">
+        <h1>Comment louer mon équipement sportif ?</h1>
       </div>
-      <div class="step">
-        <h3>2. SELECTIONNER L' ABONNEMENT</h3>
-        <p>
-          Je choisis l'offre de location qui me correspond et je récupère mon
-          matériel en magasin.
-        </p>
-      </div>
-      <div class="step">
-        <h3>3. PRATIQUER</h3>
-        <p>
-          J'utilise mon produit en toute liberté en bénéficiant des services
-          associés : entretien, casse, etc.
-        </p>
-      </div>
-      <div class="step">
-        <h3>4. RETOURNER MON PRODUIT</h3>
-        <p>
-          Je me rends en magasin lorsque mon engagement est terminé pour
-          retourner mon produit.
-        </p>
+      <div class="section-steps">
+        <div class="step">
+          <h3>1. CHOISIR MON PRODUIT</h3>
+          <p>Je choisis le matériel avec les services associés sur locfit.fr</p>
+        </div>
+        <div class="step">
+          <h3>2. SELECTIONNER L' ABONNEMENT</h3>
+          <p>
+            Je choisis l'offre de location qui me correspond et je récupère mon
+            matériel en magasin.
+          </p>
+        </div>
+        <div class="step">
+          <h3>3. PRATIQUER</h3>
+          <p>
+            J'utilise mon produit en toute liberté en bénéficiant des services
+            associés : entretien, casse, etc.
+          </p>
+        </div>
+        <div class="step">
+          <h3>4. RETOURNER MON PRODUIT</h3>
+          <p>
+            Je me rends en magasin lorsque mon engagement est terminé pour
+            retourner mon produit.
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Section Produits -->
+
+  
+  <!-- Section Produits -->
 
 
-<div class="CCcontainer">
-  <div class="cadresection">
-    <div class="sectionTitle">
-      <h1>
-        Vos coups de coeur du moment <span style="color: green">&#10084;</span>
-      </h1>
-    </div>
-    <div class="CCsection-steps">
-      <% bestSellers.forEach(function(element, index) { %> <% if (index < 5) {
-      %>
-      <!-- Limite à 5 éléments -->
-      <div class="CCstep">
-        <div class="CCPrix">
-          <h2><strong><%= element.prix_location %>€</strong> /jour</h2>
-        </div>
-        <div class="CCImg">
-          <img src="/img/<%= element.image %>" alt="<%= element.modele %>" />
-        </div>
-        <p><%= element.marque %> <%= element.modele %></p>
-        <div class="action-buttons">
-          <a href="/produit/<%= element.id %>">
-            <button class="add-to-cart" type="submit">Voir</button>
-          </a>
-        </div>
+  <div class="CCcontainer">
+    <div class="cadresection">
+      <div class="sectionTitle">
+        <h1>
+          Vos coups de coeur du moment <span style="color: green">&#10084;</span>
+        </h1>
       </div>
-      <% } %> <% }); %>
+      <div class="CCsection-steps">
+        <% bestSellers.forEach(function(element, index) { %>
+          <% if (index < 5) { %>
+            <!-- Limite à 5 éléments -->
+            <div class="CCstep">
+              <div class="CCPrix">
+                <h2><strong>
+                    <%= element.prix_location %>€
+                  </strong> /jour</h2>
+              </div>
+              <div class="CCImg">
+                <img src="/img/<%= element.image %>" alt="<%= element.modele %>" />
+              </div>
+              <p>
+                <%= element.marque %>
+                  <%= element.modele %>
+              </p>
+              <div class="action-buttons">
+                <a href="/produit/<%= element.id %>">
+                  <button class="add-to-cart" type="submit">Voir</button>
+                </a>
+              </div>
+            </div>
+            <% } %>
+              <% }); %>
+      </div>
     </div>
   </div>
-</div>
-<%- include('footer'); -%>
+  <%- include('footer'); -%>
