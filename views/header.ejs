@@ -42,21 +42,25 @@
           <a href="/inscription">Compte</a>
         </div>
       </div>
+
       <div class="connexion-button">
-        <% if (isAuth) { %>
-        <a href="/deconnexion" class="btn-connexion">Déconnexion</a>
+  <% if (isAuth) { %>
+    <!-- Bouton Déconnexion avec classe btn-deconnexion -->
+    <a href="/deconnexion" class="btn-deconnexion">Déconnexion</a>
 
+    <% if (role === 'admin') { %>
+      <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
+    <% } %>
+  <% } else { %>
+    <!-- Bouton Connexion avec classe btn-connexion -->
+    <a href="/connexion" class="btn-connexion">Connexion</a>
+  <% } %>
 
-        <% if (role === 'admin') { %>
-        <a href="/creationagent" class="btn-creation-agent">Création Agent</a>
-        <% } %> <% } else { %>
-        <a href="/connexion" class="btn-connexion">Connexion</a>
-        <% } %>
-        <% if (role === 'agent') { %>
-         
-          <a href="/location" class="btn-creation-agent">Location</a>
-          <% } %>
-      </div>
+  <% if (role === 'agent') { %>
+    <a href="/location" class="btn-creation-agent">Location</a>
+  <% } %>
+</div>
+
     </header>
 
 

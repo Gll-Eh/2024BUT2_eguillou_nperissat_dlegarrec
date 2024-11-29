@@ -80,6 +80,21 @@ body {
     background-color: #567d4b; 
 }
 
+.btn-deconnexion {
+    background-color: #F38923; /* Bouton Déconnexion en orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .btn-deconnexion:hover {
+    background-color: #e07b00; /* Survol du bouton Déconnexion */
+  }
+
 /* Styles pour le bouton Création Agent */
 .btn-creation-agent {
     background-color: #F38923; 
