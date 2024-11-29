@@ -187,6 +187,23 @@ async function updateUser(id, nom, prenom, ddn, email, login) {
   });
 }
 
+
+
+async function deleteUserById(id) {
+    const sql = "DELETE FROM utilisateur WHERE id = ?";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, [id], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+
+
+
 async function verifResaByProductId(id) {
   const sql =
     "SELECT * FROM produit P JOIN location L ON P.id = L.produit_id WHERE L.produit_id = ? AND L.location_etat = 'progress'";
@@ -323,6 +340,7 @@ async function addPanier(idProduct, idClient, dateDebut, dateRetourPrevue, elpre
     });
   }
 
+
   async function deleteClient(userId) {
     const sql = "DELETE FROM utilisateur WHERE id = ?";
   
@@ -397,3 +415,4 @@ deleteClient,
 calculateTotalPrice
 
 };
+
