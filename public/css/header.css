@@ -31,10 +31,9 @@ body {
 .search-bar {
     width: 700px;
     padding: 10px;
-    padding-left: 40px; /* Space for the icon */
+    padding-left: 40px; 
     border: 2px solid #8C9F76;
     border-radius: 4px;
-    background-color: #f0f0f0; /* Light grey background */
 }
 
 .search-icon {
@@ -81,7 +80,7 @@ body {
 }
 
 .btn-deconnexion {
-    background-color: #F38923; /* Bouton Déconnexion en orange */
+    background-color: #F38923; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -92,7 +91,7 @@ body {
   }
   
   .btn-deconnexion:hover {
-    background-color: #e07b00; /* Survol du bouton Déconnexion */
+    background-color: #e07b00; 
   }
 
 /* Styles pour le bouton Création Agent */
