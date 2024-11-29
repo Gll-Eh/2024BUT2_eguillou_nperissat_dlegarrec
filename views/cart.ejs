@@ -30,7 +30,15 @@
                         <p>Quantité: <%= item.quantity %>
                         </p>
 
-
+                        <form id="rentForm">
+                            <label for="startDate">Date de début :</label>
+                            <input type="date" id="startDate" name="startDate" required>
+                          
+                            <label for="endDate">Date de fin :</label>
+                            <input type="date" id="endDate" name="endDate" required>
+                          
+                            <button type="submit">Louer</button>
+                          </form>
                         <form action="/remove-from-cart" method="post">
                             <input type="hidden" name="productId" value="<%= item.id %>">
                             <button type="submit">Supprimer</button>

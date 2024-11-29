@@ -137,6 +137,35 @@ app.post("/modif-compte", async function (req, res) {
     }
 });
 
+app.get("/location", async function (req, res) {
+document.getElementById('rentForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const productId = 'ID_DU_PRODUIT'; // Remplacez par l'ID du produit
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+    try {
+      const response = await fetch(`/products/${productId}/rent`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ startDate, endDate })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert('Produit loué avec succès !');
+      } else {
+        alert(data.message || 'Erreur lors de la location.');
+      }
+    } catch (error) {
+      console.error('Erreur :', error);
+      alert('Une erreur s’est produite.');
+    }
+})});
+
 
 app.get("/location", async function (req, res) {
     try {
