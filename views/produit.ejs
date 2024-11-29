@@ -33,10 +33,16 @@
 
             <form action="/add-to-cart" method="post">
                 <input type="hidden" name="productId" value="<%= produits.id %>">
-                <button class="add-to-cart" type="submit">Ajouter au panier</button>
+
+                <% if (isAuth) { %>
+                    <button class="add-to-cart" type="submit">Ajouter au panier</button>
+                    <% } else { %>
+                        <h1>Veuillez vous connecter pour louer ce produit.</h1>
+                      <% } %>
+        
+                
             </form>
            
-            <button class="wishlist">&#x2661;</button>
         </div>
     </div>
 
