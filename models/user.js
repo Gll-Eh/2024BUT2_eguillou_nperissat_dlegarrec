@@ -160,6 +160,21 @@ async function updateUser(id, nom, prenom, ddn, email, login) {
 }
 
 
+async function deleteUserById(id) {
+    const sql = "DELETE FROM utilisateur WHERE id = ?";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, [id], (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
+
+
+
 async function verifResaByProductId(id) {
     const sql =
       "SELECT * FROM produit P JOIN location L ON P.id = L.produit_id WHERE L.produit_id = ? AND L.location_etat = 'progress'"
@@ -176,4 +191,7 @@ async function verifResaByProductId(id) {
   }
 
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, locWait, locProgress, locFinish, verifResaByProductId  };
+  
+
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser,  deleteUserById, get_produit, locWait, locProgress, locFinish, verifResaByProductId  };

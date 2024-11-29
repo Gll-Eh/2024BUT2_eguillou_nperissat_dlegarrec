@@ -81,6 +81,8 @@ app.get("/inscription", function (req, res) {
 });
 
 
+
+
 app.get("/catalogue", async function (req, res) {
     try {
         const products = await userModel.get_catalogue();
@@ -274,6 +276,31 @@ app.post("/inscription", async function (req, res) {
 
 
 
+// Route pour supprimer un compte
+app.post("/supprimer-compte", async function (req, res) {
+    const userId = req.session.userId;
+
+    if (!userId) {
+        return res.redirect("/connexion"); // Redirige l'utilisateur s'il n'est pas connecté
+    }
+
+    try {
+        // Appel à la méthode du modèle pour supprimer l'utilisateur de la base de données
+        await userModel.deleteUser(userId);
+
+        // Détruire la session de l'utilisateur
+        req.session.destroy(function (err) {
+            if (err) {
+                return res.status(500).send("Erreur lors de la suppression du compte");
+            }
+            // Rediriger vers la page d'accueil après suppression
+            res.redirect("/");
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erreur lors de la suppression du compte");
+    }
+});
 
 
 
