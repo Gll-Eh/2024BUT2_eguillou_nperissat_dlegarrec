@@ -161,4 +161,20 @@ async function updateUser(id, nom, prenom, ddn, email, login) {
 }
 
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, locWait, locProgress, locFinish };
+async function verifResaByProductId(id) {
+    const sql =
+      "SELECT * FROM produit P JOIN location L ON P.id = L.produit_id WHERE L.produit_id = ? AND L.location_etat = 'progress'"
+    const values = [id];
+  
+    return new Promise((resolve, reject) => {
+      bdd.query(sql, values, (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(results);
+      });
+    });
+  }
+
+
+module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, updateUser, get_produit, locWait, locProgress, locFinish, verifResaByProductId  };
