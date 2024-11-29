@@ -3,16 +3,16 @@
 
     <div class="produit-container">
         <!-- produits Image -->
-        <!-- <div class="produits-image">
+        <div class="produits-image">
             <img src="/img/<%= produits.image %>" alt="<%= produits.description %>">
-        </div> -->
+        </div> 
 
 
         <!-- produits Info -->
-        <!-- <div class="produit-info">
+        <div class="produit-info">
             
             <h1><%= produits.marque %> <%= produits.modele %></h1>
-            <p class="price">Prix du produit : <strong><%= produits.prix_location %>€</strong></p>
+            <p class="price">Prix du produit : <strong><%= produits.prix_location %>€</strong><span>   <%= produits.etat %></span></p>
             <p class="description">
                 <%= produits.description %>
             </p>
@@ -22,20 +22,30 @@
                 <p><span class="available">&#x2705;</span> Ce produit est disponible en magasin !</p>
             </div>
 
-            <form action="/add-to-cart" method="post">
-                <input type="hidden" name="productId" value="<%= produits.id %>">
-
-                <% if (isAuth) { %>
-                    <button class="add-to-cart" type="submit">Ajouter au panier</button>
-                    <% } else { %>
-                        <h1>Veuillez vous connecter pour louer ce produit.</h1>
-                      <% } %>
+            <form action="/addPanier" method="post">
+                <div class="produits-container">
+                    <div class="details-section">
+                        <input type="hidden" name="id_product" value="<%= produits.id %>">
+                        <% if(role === 'client') { %>
         
-                
+                        <div class="quantity-reserve">    
+                            <div class="date-range">
+                                <label for="start">Louer du</label>
+                                <input type="date" id="start" name="start" required>
+                                <label for="end">au</label>
+                                <input type="date" id="end" name="end" required>  
+                            </div>
+                        </div>
+                        
+                            <button type="submit" class="btn-deconnexion">Réserver</button>
+                        <% } %>
+                        
+                    </div>
+                </div>
             </form>
            
-        </div> -->
-        <form action="/addPanier" method="post">
+        </div>
+        <!-- <form action="/addPanier" method="post">
             <div class="produits-container">
                 <div class="image-section">
                     <img src="/img/velo.png" alt="Vélo" class="produits-image">
@@ -72,7 +82,7 @@
                     
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
 
 

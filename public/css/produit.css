@@ -6,6 +6,10 @@
     background-color: #fff;
 }
 
+.details-section .btn-deconnexion {
+    margin-top: 10px;
+}
+
 .produit-image img {
     width: 300px;
     height: auto;
