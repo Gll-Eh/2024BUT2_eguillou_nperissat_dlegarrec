@@ -41,8 +41,6 @@ async function get_catalogue() {
 
 
 function addToFav() {
-
-
 }
 
 
@@ -147,7 +145,8 @@ async function locFinish() {
 }
 
 
-module.exports = { getUserById, checkLogin, get_catalogue, get_accueil, createAgent, createClient, get_produit };
+
+
 async function updateUser(id, nom, prenom, ddn, email, login) {
     const sql = "UPDATE utilisateur SET nom = ?, prenom = ?, ddn = ?, email = ?, login = ? WHERE id = ?";
     return new Promise((resolve, reject) => {

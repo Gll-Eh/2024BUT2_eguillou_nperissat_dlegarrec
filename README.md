@@ -42,12 +42,21 @@ Et pour finir le client a également une page en plus qui est :
 
 
 ## Problèmes recontrés 
-- 1) Bug au niveau des dates : lors de l'inscription l'utilisateur rentre sa date de naissance mais elle n'était pas la même dans la page compte une fois connecté. 
-- 2) L'ajout d'une image lors de l'ajout d'un produit : je n'ai pas réussi à faire en sorte d'importer une image de référence pour le produit 
+
+- Comme gros problème rencontré, il y avait la fonctionalités de modifier ses informations lorsque le client est connecté, et pouvoir enregistrer ce changement dans la base de donnée.<br></br>
+
+- Nous avons eu un gros problème pour afficher comme produit sur notre page des éléments que nous avons implémenté dans notre base de donnée.<br></br>
+
+- Nous avons aussi eu un problème au niveau des validations de location par un agent.
+
+
 
 ## Solutions apportées
-- 1) J'ai utilisé une autre fonction pour afficher les dates
-- 2) Je n'ai pas trouvé de solution pour ce problème. Sans doute avec des modules mais pour les faire correspondre à nos règles BDD. 
+- Transformer un recap des informations en formulaire HTML pour modifier ses infos était compliqué, donc ce que nous avons fait c'est : Faire un récap des infos avec un bouton modifier, et lorsque ce bouton est pressé afficher un formulaire qui était "caché" tant que le bouton n'était pas pressé.<br></br>
+
+- Nous avons créer une fonction get_catalogue dans le fichier user.js qui effectue une requette SQL sur nos produits présents dans la base de donnée, nous affichons cette fonction ensuite dans la page catalogue avec une route depuis app.js.<br></br>
+
+- Nous n'avons pas encore réglé ce problème :(.
 
 ##  Extensions et modules
 
