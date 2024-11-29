@@ -317,7 +317,7 @@ app.post("/supprimer-compte", async function (req, res) {
         // Appel à la méthode du modèle pour supprimer l'utilisateur de la base de données
         await userModel.deleteUser(userId);
 
-        // Détruire la session de l'utilisateur
+        // Détruire la session de 
         req.session.destroy(function (err) {
             if (err) {
                 return res.status(500).send("Erreur lors de la suppression du compte");
