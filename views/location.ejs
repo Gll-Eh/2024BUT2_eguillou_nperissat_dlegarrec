@@ -7,6 +7,10 @@
 <p>
     <% WaitList.forEach(element => { %>
        <%= element.location_etat %>
+       <form action="/valid" method="post">
+        <input type="hidden" name="product_id" value="<%=element.produit_id %>">
+        <button type="submit">Valider</button>
+       </form>
     <% }) %>
 </p>
 

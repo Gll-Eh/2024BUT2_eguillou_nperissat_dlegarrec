@@ -164,6 +164,24 @@ app.get("/location", async function (req, res) {
 });
 
 
+app.post("/valid", async function (req, res) {
+    const { idProduct } = req.body
+    const userId = req.session.userId;
+
+
+    try {
+        await userModel.verifResaByProductId(idProduct);
+        const WaitList = await userModel.locWait();
+                const ProgressList = await userModel.locProgress();
+                const FinishList = await userModel.locFinish();
+                res.render("location", { WaitList, ProgressList, FinishList });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Erreur lors de la mise à jour des informations");
+    }
+});
+
+
 app.get("/connexion", function (req, res) {
     res.render("login", { error: null });
 });
