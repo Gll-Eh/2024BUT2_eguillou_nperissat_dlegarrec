@@ -35,7 +35,13 @@
       <div class="navbar-right">
         <div class="icon-group">
           <img src="/img/panier.png" class="icon-link" />
-          <a href="/cart">Panier</a>
+
+          <% if (isAuth) { %>
+            <a href="/cart">Panier</a>
+            <% } else { %>
+              <a href="/">Panier</a>
+              <% } %>
+
         </div>
         <div class="icon-group">
           <a href="/inscription"><img src="/img/compte.png" class="icon-link" /></a>

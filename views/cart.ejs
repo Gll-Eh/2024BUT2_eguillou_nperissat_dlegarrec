@@ -14,9 +14,10 @@
 
 
         <% if (cart && cart.length> 0) { %>
-            <!-- Grille des produits du panier -->
+
             <div class="cart-grid">
                 <% cart.forEach(function(item) { %>
+                    
                     <div class="cart-item">
                         <img src="/img/<%= item.image %>" alt="<%= item.marque %>">
                         <h3>
@@ -30,7 +31,6 @@
                         </p>
 
 
-                        <!-- Formulaire de suppression du produit -->
                         <form action="/remove-from-cart" method="post">
                             <input type="hidden" name="productId" value="<%= item.id %>">
                             <button type="submit">Supprimer</button>
