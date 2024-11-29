@@ -137,7 +137,7 @@ app.post("/modif-compte", async function (req, res) {
     }
 });
 
-app.get("/location", async function (req, res) {
+app.post("/location", async function (req, res) {
 document.getElementById('rentForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -166,6 +166,53 @@ document.getElementById('rentForm').addEventListener('submit', async (event) => 
     }
 })});
 
+app.post('/addPanier', async (req, res) => {
+    const { productId } = req.body;  
+    const userId = req.session.userId; 
+  
+    if (!userId) {
+      return res.redirect('/login'); 
+    }
+  
+    try {
+      const userId = res.locals.id; 
+      const { id_product, start, end } = req.body;
+      console.log("coucou", id_product, start, end);
+  
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      console.log("Ceci est startDate :", startDate, " Ceci est endDate : ", endDate)
+  
+
+      if (startDate >= endDate) {
+        return res.status(400).send("La date de début doit être avant la date de fin.");
+      }
+  
+      const durationInDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+      if (durationInDays > 30) {
+        return res.status(400).send("La durée maximale de réservation est de 30 jours. Revenez en arrière !");
+      }
+  
+      const isAvailable = await userModel.VerifDateDeResa(id_product, start, end);
+      console.log("ceci est isAvailable :", isAvailable);
+      const prixdelocduproduit = await userModel.ShowPrixDeLoc(id_product);
+      console.log("Ceci est le prix de loc : ", prixdelocduproduit["prix_location"])
+      if (isAvailable === true) {
+
+        await userModel.addPanier(id_product, userId, start, end, prixdelocduproduit["prix_location"]);
+
+        const panier = await userModel.showPanier(userId);
+        res.render("cart", { panier });
+  
+      } else {
+        res.status(400).send("Les dates sélectionnées ne sont pas disponibles pour ce produit.");
+      }
+    } catch (err) {
+      console.error("Erreur lors de l'ajout au panier :", err);
+      res.status(500).send("Erreur lors de l'ajout au panier.");
+    }
+  });
+
 
 app.get("/location", async function (req, res) {
     try {
@@ -186,10 +233,6 @@ app.get("/location", async function (req, res) {
         console.error(err);
         res.status(500).send("Erreur lors de la mise à jour des informations");
     }
-
-
-
-
 });
 
 
@@ -332,7 +375,9 @@ app.post("/add-to-cart", async function (req, res) {
                 req.session.cart.push({ ...product, quantity: 1 });
             }
         }
-        res.redirect("/cart"); // Rediriger vers la page panier
+        const panier = await userModel.showPanier(userId);
+        res.render("cart", { panier });
+       
     } catch (err) {
         console.error(err);
         res.status(500).send("Erreur lors de l'ajout au panier");
@@ -341,21 +386,65 @@ app.post("/add-to-cart", async function (req, res) {
 
 
 // Route pour afficher le panier
-app.get("/cart", function (req, res) {
-    res.render("cart", { cart: req.session.cart });
+app.get("/cart", async function (req, res) {
+    const userId = res.locals.id;
+    const panier = await userModel.showPanier(userId);
+    res.render("cart", { panier });
 });
 
 
-// Route pour retirer un produit du panier
-app.post("/remove-from-cart", function (req, res) {
-    const { productId } = req.body;
-    req.session.cart = req.session.cart.filter((item) => item.id !== parseInt(productId, 10));
-    res.redirect("/cart");
-});
+app.post("/deleteProductToPanier", async function (req, res) {
+    if (res.locals.isAuth === true) {
+      try {
+        const userId = req.session.userId; // Utiliser l'ID de l'utilisateur connecté
+        const { productId } = req.body;
+  
+        const suppr = await userModel.deleteToPanier(productId, userId);
+        if (suppr == true) {
+          const panier = await userModel.showPanier(userId); // Récupérer les éléments du panier pour cet utilisateur
+          console.table(panier)
+          res.render("cart", { panier }); // Passer le panier à la vue pour affichage
+        }
+        else {
+          console.error("Erreur lors de la supression d'un produit du panier :");
+          res.status(500).send("Erreur lors de la supression d'un produit du panier");
+        }
+      } catch (error) {
+        console.error("Erreur lors de la supression d'un produit du panier :", error);
+        res.status(500).send("Erreur lors de la supression d'un produit du panier");
+      }
+    } else {
+      res.render("index");
+    }
+  });
 
 
-
-
+  app.post("/delete-account", async function (req, res) {
+    try {
+      const userId = res.locals.id;
+  
+      // Milo vérifie si l'utilisateur a des locations en cours !!!!!!!
+      const loc = await userModel.verifResaClient(userId);
+  
+      if (loc.length > 0) {
+        res
+          .status(400)
+          .send(
+            "Vous ne pouvez pas supprimer votre compte, car vous avez des locations en cours. Veuillez revenir en arrière. "
+          );
+      } else {
+        const user = await userModel.deleteClient(userId);
+        console.log("Client supprimé avec succès", user);
+        req.session.destroy(function (err) {
+          if (err) return res.redirect("/");
+          res.redirect("/connexion");
+        });
+      }
+    } catch (err) {
+      console.error("Erreur lors de la suppression du compte :", err);
+      res.status(500).send("Erreur lors de la suppression du compte");
+    }
+  });
 
 
 app.get("/cart", function (req, res) {

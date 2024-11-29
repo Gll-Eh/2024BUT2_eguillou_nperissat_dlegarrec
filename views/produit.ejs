@@ -2,14 +2,15 @@
 
 
     <div class="produit-container">
-        <!-- Product Image -->
-        <div class="product-image">
+        <!-- produits Image -->
+        <!-- <div class="produits-image">
             <img src="/img/<%= produits.image %>" alt="<%= produits.description %>">
-        </div>
+        </div> -->
 
 
-        <!-- Product Info -->
-        <div class="produit-info">
+        <!-- produits Info -->
+        <!-- <div class="produit-info">
+            
             <h1><%= produits.marque %> <%= produits.modele %></h1>
             <p class="price">Prix du produit : <strong><%= produits.prix_location %>€</strong></p>
             <p class="description">
@@ -20,16 +21,6 @@
                 <p><%= produits.magasin %></p>
                 <p><span class="available">&#x2705;</span> Ce produit est disponible en magasin !</p>
             </div>
-
-
-            <!-- Offer selection -->
-            <div class="offer-selection">
-                <label for="offer-select">Sélectionner une offre:</label>
-                <select id="offer-select">
-                    <option value="26"><%= produits.prix_location %> € / jour</option>
-                </select>
-            </div>
-
 
             <form action="/add-to-cart" method="post">
                 <input type="hidden" name="productId" value="<%= produits.id %>">
@@ -43,18 +34,46 @@
                 
             </form>
            
-        </div>
+        </div> -->
+        <form action="/addPanier" method="post">
+            <div class="produits-container">
+                <div class="image-section">
+                    <img src="/img/velo.png" alt="Vélo" class="produits-image">
+                </div>
+    
+                <div class="details-section">
+                    <h1>
+                        <%= produits.type %>
+                            <%= produits.modele %>
+                    </h1>
+                    <p class="description">
+                        <%= produits.description %>
+                    </p>
+                    <h2 class="price">
+                        <%= produits.prix_location %> €/j - <%= produits.etat %>
+                    </h2>
+                    <div class="delivery-info">
+                        <span>Retrait <strong>GRATUIT</strong></span> en magasin et point relais
+                    </div>
+                    <input type="hidden" name="id_product" value="<%= produits.id %>">
+                    <% if(role === 'client') { %>
+    
+                    <div class="quantity-reserve">    
+                        <div class="date-range">
+                            <label for="start">Louer du</label>
+                            <input type="date" id="start" name="start" required>
+                            <label for="end">au</label>
+                            <input type="date" id="end" name="end" required>  
+                        </div>
+                    </div>
+                    
+                        <button type="submit" class="reserve-btn">Réserver</button>
+                    <% } %>
+                    
+                </div>
+            </div>
+        </form>
     </div>
-
-
-    <!-- Video section -->
-    <div class="video-section">
-        <a href="#">
-            <img src="img/rameur.png" alt="Lancer la vidéo">
-            <span>Lancer la vidéo explicative</span>
-        </a>
-    </div>
-
 
 
 

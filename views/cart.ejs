@@ -1,57 +1,39 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/cart.css" />
-    <title>Panier</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/cart.css" />
+  <title>Panier</title>
 </head>
-
 
 <%- include('header'); -%>
 
+<div class="cart-container">
+  <h1>Votre Panier</h1>
 
-    <div class="cart-container">
-        <h1>Votre Panier</h1>
+  <% if (panier && panier.length> 0) { %>
 
-
-        <% if (cart && cart.length> 0) { %>
-
-            <div class="cart-grid">
-                <% cart.forEach(function(item) { %>
-                    
-                    <div class="cart-item">
-                        <img src="/img/<%= item.image %>" alt="<%= item.marque %>">
-                        <h3>
-                            <%= item.marque %>
-                                <%= item.modele %>
-                        </h3>
-                        <p class="price">
-                            <%= item.prix_location %> €
-                        </p>
-                        <p>Quantité: <%= item.quantity %>
-                        </p>
-
-                        <form id="rentForm">
-                            <label for="startDate">Date de début :</label>
-                            <input type="date" id="startDate" name="startDate" required>
-                          
-                            <label for="endDate">Date de fin :</label>
-                            <input type="date" id="endDate" name="endDate" required>
-                          
-                            <button type="submit">Louer</button>
-                          </form>
-                        <form action="/remove-from-cart" method="post">
-                            <input type="hidden" name="productId" value="<%= item.id %>">
-                            <button type="submit">Supprimer</button>
-                        </form>
-                    </div>
-                    <% }); %>
-            </div>
+  <div class="cart-grid">
+    <% panier.forEach(function(item) { %>
+       
+     <div class="cart-item">
+      <img src="/img/<%= item.image %>" alt="<%= item.marque %>" />
+      <h3><%= item.marque %> <%= item.modele %></h3>
+      <p class="price"><%= item.prix_location %> €</p>
+      <p>Quantité: <%= item.quantity %></p>
+      <p>Prix total: <%= item.prix_total %> €</p>
 
 
-            <% } else { %>
-                <p class="empty-cart">Votre panier est vide.</p>
-                <% } %>
-    </div>
+      <form action="/deleteProductToPanier" method="post">
+        <input type="hidden" name="productId" value="<%= item.produit_id %>">
+        <button type="submit"> Annuler commande </button>
+      </form>
+    </div> 
+    <% }); %>
+  </div>
 
+  <% } else { %>
+  <p class="empty-cart">Votre panier est vide.</p>
+  <% } %>
+</div>
 
-    <%- include('footer'); -%>
+<%- include('footer'); -%>
